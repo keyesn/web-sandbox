@@ -1,0 +1,20 @@
+# Default state for all rules
+default: true
+
+# MD007/indent : Unordered list indentation : https://github.com/DavidAnson/markdownlint/blob/v0.32.1/doc/md007.md
+MD007:
+  indent: 2
+
+# MD013/line-length : Line length : https://github.com/DavidAnson/markdownlint/blob/v0.32.1/doc/md013.md
+MD013: false
+
+# MD033/no-inline-html : Inline HTML : https://github.com/DavidAnson/markdownlint/blob/v0.32.1/doc/md033.md
+MD033:
+  # Allowed elements
+  allowed_elements: ["details", "summary"]
+
+# MD036/no-emphasis-as-heading : Emphasis used instead of a heading : https://github.com/DavidAnson/markdownlint/blob/v0.40.0/doc/md036.md
+MD036: false
+
+# MD059/link-text-should-be-descriptive : Inline HTML : https://github.com/DavidAnson/markdownlint/blob/v0.38.0/doc/md059.md
+MD059: false

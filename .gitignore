@@ -1,0 +1,16 @@
+*.log
+.idea
+.vscode
+.idea/**/*
+.vscode/**/*
+.DS_Store
+npm-debug.log.*
+node_modules
+node_modules/**/*
+.eslintcache
+cert
+logs/*
+desktop.ini
+package-lock.json
+.history
+.env

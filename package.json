@@ -1,0 +1,10 @@
+{
+  "name": "web-sandbox",
+  "private": true,
+  "version": "1.0.0",
+  "description": "A personal web development sandbox project.",
+  "type": "module",
+  "scripts": {
+    "start": "node src/server/server.js"
+  }
+}
