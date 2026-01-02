@@ -41,14 +41,17 @@ web-sandbox/
 ├── src/
 │   ├── server/            # Node.js backend (no frameworks)
 │   │   ├── server.js      # HTTP server entry point
-│   │   ├── router.js      # Request routing
-│   │   └── handlers/      # API route handlers
-│   │       └── api.js
-│   └── public/            # Static front-end assets served by Node
-│       ├── index.html
-│       ├── components/    # Reusable HTML fragments
+│   │   ├── router.js      # Request routing with template rendering
+│   │   ├── handlers/      # API route handlers
+│   │   └── utils/         # Server utilities (template renderer, page config)
+│   ├── views/             # Server-rendered templates
+│   │   ├── layout.html    # Base layout template (DRY)
+│   │   └── pages/         # Page-specific content fragments
+│   └── public/            # Static front-end assets (CSS, JS, images)
+│       ├── components/    # Reusable UI components
 │       ├── css/           # Stylesheets
-│       └── js/            # ES modules
+│       ├── js/            # ES modules
+│       └── shared/        # Global utilities and styles
 ├── docs/                  # Project docs and learning guides
 ├── package.json
 └── README.md

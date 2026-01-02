@@ -1,8 +1,4 @@
-import { loadNavbar } from "../components/navbar/navbar.js";
 import { getData, getHealth, postData } from "../shared/api-client.js";
-
-// Load navbar component
-await loadNavbar("#navbar");
 
 /* -------- Health Button -------- */
 const btnHealth = document.querySelector("#btnHealth");

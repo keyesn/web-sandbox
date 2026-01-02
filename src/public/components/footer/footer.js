@@ -3,11 +3,14 @@
  *
  * Features:
  * - Permanent footer with current year display
+ * - User-facing error display with retry mechanism
  *
  * Usage:
  *   import { loadFooter } from './footer.js';
  *   await loadFooter('#footer');
  */
+
+import { showError } from "../../shared/error-display.js";
 
 /**
  * Load footer HTML and initialize functionality
@@ -17,7 +20,7 @@ export async function loadFooter(containerSelector) {
   const container = document.querySelector(containerSelector);
 
   if (!container) {
-    console.error(`Footer container "${containerSelector}" not found`);
+    showError(`Footer container "${containerSelector}" not found`, () => loadFooter(containerSelector));
     return;
   }
 
@@ -26,16 +29,16 @@ export async function loadFooter(containerSelector) {
     const response = await fetch("/components/footer/footer.html");
 
     if (!response.ok) {
-      throw new Error(`Failed to load footer: ${response.status}`);
+      throw new Error(`Server returned ${response.status}`);
     }
 
     const html = await response.text();
     container.innerHTML = html;
 
-    // Initialize navbar functionality after HTML is loaded
+    // Initialize footer functionality after HTML is loaded
     initFooter();
   } catch (error) {
-    console.error("Error loading navbar:", error);
+    showError(`Footer failed to load: ${error.message}`, () => loadFooter(containerSelector));
   }
 }
 

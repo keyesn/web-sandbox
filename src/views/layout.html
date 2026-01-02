@@ -2,19 +2,29 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Vanilla JS App</title>
+    <title>{{PAGE_TITLE}} | Web Sandbox</title>
     <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
     <link rel="stylesheet" href="/shared/styles.css" />
     <link rel="stylesheet" href="/components/navbar/navbar.css" />
     <link rel="stylesheet" href="/components/footer/footer.css" />
+    {{PAGE_STYLESHEETS}}
   </head>
   <body>
+    <div id="app-errors"></div>
     <div id="navbar"></div>
+
     <main>
-      <h1 class="title">Web Sandbox</h1>
+      <div class="page-header">
+        <h1 class="title">{{PAGE_TITLE}}</h1>
+        <p class="subtitle">{{PAGE_SUBTITLE}}</p>
+      </div>
+
+      {{PAGE_CONTENT}}
     </main>
+
     <div id="footer"></div>
 
     <script type="module" src="/js/main.js"></script>
+    {{PAGE_SCRIPTS}}
   </body>
 </html>

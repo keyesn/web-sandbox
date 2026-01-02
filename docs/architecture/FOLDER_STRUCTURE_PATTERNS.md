@@ -12,34 +12,61 @@ Understanding different approaches to organizing code in web applications - from
 
 ## Current Project Structure
 
-**WebSandbox** uses a **component-based grouping** approach:
+**WebSandbox** uses **server-side template rendering** with **component-based organization**:
 
 ```text
 web-sandbox/
 ├── src/
 │   ├── server/              # Backend (by layer)
-│   │   ├── server.js
-│   │   ├── router.js
-│   │   └── handlers/
-│   │       └── api.js
-│   └── public/              # Frontend (component-based)
-│       ├── index.html
-│       ├── api.html
+│   │   ├── server.js        # HTTP server entry point
+│   │   ├── router.js        # Request routing + template rendering
+│   │   ├── config.js        # Server configuration
+│   │   ├── handlers/        # API route handlers
+│   │   │   ├── api-routes.js
+│   │   │   ├── data.js
+│   │   │   └── health.js
+│   │   └── utils/           # Server utilities
+│   │       ├── template.js  # Template renderer
+│   │       ├── pages.js     # Page configuration
+│   │       ├── json.js
+│   │       └── validators.js
+│   ├── views/               # Server-rendered templates
+│   │   ├── layout.html      # Base layout (shared structure)
+│   │   └── pages/           # Page content fragments
+│   │       ├── home.html
+│   │       ├── api-demo.html
+│   │       └── ui-library.html
+│   └── public/              # Frontend static assets
 │       ├── components/      # Reusable UI components
-│       │   └── navbar/      # Each component in its own folder
-│       │       ├── navbar.html
-│       │       ├── navbar.css
-│       │       └── navbar.js
+│       │   ├── navbar/      # Each component in its own folder
+│       │   │   ├── navbar.html
+│       │   │   ├── navbar.css
+│       │   │   └── navbar.js
+│       │   └── footer/
+│       │       ├── footer.html
+│       │       ├── footer.css
+│       │       └── footer.js
+│       ├── css/             # Page-specific stylesheets
+│       │   ├── api-demo.css
+│       │   └── ui-library.css
 │       ├── shared/          # Global utilities and styles
 │       │   ├── styles.css   # Global CSS (resets, typography, layout)
-│       │   └── api.js       # Shared API utility functions
+│       │   ├── api-client.js # Fetch wrapper for API calls
+│       │   └── error-display.js # User-facing error handling
 │       └── js/              # Page-specific JavaScript
-│           ├── main.js      # index.html script
-│           └── api-page.js  # api.html script
+│           ├── main.js      # Shared initialization (all pages)
+│           ├── api-demo.js  # API demo page logic
+│           └── ui-library.js # UI library page logic
 └── docs/                    # Project docs and learning guides
 ```
 
-**Philosophy**: Co-locate related files (HTML, CSS, JS) for each component in a single folder. Shared utilities and global styles live in `shared/`. Page-specific scripts remain in `js/` for easy association with their HTML files.
+**Philosophy**:
+
+- **DRY for HTML**: Base layout template eliminates duplication; pages are just content fragments
+- **Server-side rendering**: Router renders templates with page-specific data before sending to client
+- **Component co-location**: Related files (HTML, CSS, JS) stay together in component folders
+- **Clear separation**: Templates in `views/`, static assets in `public/`, server logic in `server/`
+- **Explicit over implicit**: Template rendering is plain string replacement, no magic
 
 ## Frontend Organization Patterns
 

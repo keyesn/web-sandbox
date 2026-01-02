@@ -1,26 +1,32 @@
 /**
- * Navbar module - Self-contained navigation bar with mobile toggle
+ * Navbar module - Navigation bar component with mobile toggle
  *
  * Features:
  * - Loads navbar HTML from external file
  * - Mobile menu toggle (hamburger button)
- * - Active link tracking
  * - Auto-close menu on link selection
+ * - User-facing error display with retry mechanism
+ * - Accepts page state (currentPath) for active link styling
  *
  * Usage:
  *   import { loadNavbar } from './navbar.js';
- *   await loadNavbar('#navbar-container');
+ *   const state = { currentPath: window.location.pathname };
+ *   await loadNavbar('#navbar-container', state);
  */
+
+import { showError } from "../../shared/error-display.js";
 
 /**
  * Load navbar HTML and initialize functionality
  * @param {string} containerSelector - CSS selector for the container element
+ * @param {Object} state - Page state object containing currentPath
+ * @param {string} state.currentPath - Current page path for active link highlighting
  */
-export async function loadNavbar(containerSelector) {
+export async function loadNavbar(containerSelector, state = {}) {
   const container = document.querySelector(containerSelector);
 
   if (!container) {
-    console.error(`Navbar container "${containerSelector}" not found`);
+    showError(`Navbar container "${containerSelector}" not found`, () => loadNavbar(containerSelector, state));
     return;
   }
 
@@ -29,24 +35,26 @@ export async function loadNavbar(containerSelector) {
     const response = await fetch("/components/navbar/navbar.html");
 
     if (!response.ok) {
-      throw new Error(`Failed to load navbar: ${response.status}`);
+      throw new Error(`Server returned ${response.status}`);
     }
 
     const html = await response.text();
     container.innerHTML = html;
 
     // Initialize navbar functionality after HTML is loaded
-    initNavbar();
+    initNavbar(state);
   } catch (error) {
-    console.error("Error loading navbar:", error);
+    showError(`Navbar failed to load: ${error.message}`, () => loadNavbar(containerSelector, state));
   }
 }
 
 /**
  * Initialize navbar event handlers
  * Should be called after navbar HTML is inserted into the DOM
+ * @param {Object} state - Page state object
+ * @param {string} state.currentPath - Current page path for active link highlighting
  */
-function initNavbar() {
+function initNavbar(state = {}) {
   const toggleButton = document.querySelector(".menu-toggle");
   const navLinks = document.querySelector(".nav-links");
   const links = document.querySelectorAll(".nav-links a");
@@ -64,16 +72,11 @@ function initNavbar() {
     });
   }
 
-  // Set active link based on current page
-  const currentPath = window.location.pathname;
-  links.forEach(link => {
-    const linkPath = new URL(link.href).pathname;
-    if (linkPath === currentPath) {
-      link.classList.add("active");
-    } else {
-      link.classList.remove("active");
-    }
-  });
+  // Set active link based on currentPath from page state
+  // Page owns this state; navbar just displays it
+  if (state.currentPath) {
+    setActiveLink(links, state.currentPath);
+  }
 
   // Close mobile menu when link is clicked
   links.forEach(link => {
@@ -87,6 +90,23 @@ function initNavbar() {
   if (themeToggle) {
     initThemeToggle(themeToggle);
   }
+}
+
+/**
+ * Set active link styling based on current path
+ * Extracted function to make state dependency explicit
+ * @param {NodeList} links - Navbar link elements
+ * @param {string} currentPath - Current page path
+ */
+function setActiveLink(links, currentPath) {
+  links.forEach(link => {
+    const linkPath = new URL(link.href).pathname;
+    if (linkPath === currentPath) {
+      link.classList.add("active");
+    } else {
+      link.classList.remove("active");
+    }
+  });
 }
 
 /**

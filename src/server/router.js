@@ -2,6 +2,8 @@ import { readFile } from "fs/promises";
 import path from "path";
 import { CACHE_STRATEGY } from "./config.js";
 import { handleApi } from "./handlers/api-routes.js";
+import { renderTemplate } from "./utils/template.js";
+import { getPageConfig } from "./utils/pages.js";
 
 const publicDir = path.resolve("src/public");
 
@@ -55,6 +57,29 @@ export async function router(req, res) {
   }
 
   try {
+    // Check if this is a known page route
+    const pageConfig = getPageConfig(pathname);
+
+    if (pageConfig) {
+      // Render page using template system
+      const layout = await readFile("src/views/layout.html", "utf-8");
+      const content = await readFile(pageConfig.contentFile, "utf-8");
+
+      const html = renderTemplate(layout, {
+        PAGE_TITLE: pageConfig.title,
+        PAGE_SUBTITLE: pageConfig.subtitle,
+        PAGE_STYLESHEETS: pageConfig.stylesheets,
+        PAGE_CONTENT: content,
+        PAGE_SCRIPTS: pageConfig.scripts,
+      });
+
+      const cacheControl = CACHE_STRATEGY === "dev" ? "no-store" : "no-cache, must-revalidate";
+      res.writeHead(200, { "Content-Type": "text/html; charset=utf-8", "Cache-Control": cacheControl });
+      res.end(html);
+      return;
+    }
+
+    // Fall back to static file serving for assets (CSS, JS, images, etc.)
     // Convert URL path to file path: "/" -> "index.html", "/api" -> "api"
     const relativePath = pathname === "/" ? "index.html" : pathname.slice(1);
     const decodedPath = decodeURIComponent(relativePath);
