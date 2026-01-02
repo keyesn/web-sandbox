@@ -50,11 +50,6 @@ expandOneBtn.className = "btn btn-expand-one";
 expandOneBtn.textContent = "Expand One Button";
 basicButtons.appendChild(expandOneBtn);
 
-const expandTwoBtn = document.createElement("button");
-expandTwoBtn.className = "btn btn-expand-two";
-expandTwoBtn.textContent = "Expand Two Button";
-basicButtons.appendChild(expandTwoBtn);
-
 // Button States
 const stateButtons = createSection("Button States", "Disabled and active states");
 

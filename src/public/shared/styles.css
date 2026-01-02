@@ -48,24 +48,24 @@
 
 /* ----- Reset ----- */
 * {
-  margin: 0;
   padding: 0;
+  margin: 0;
 
   /* box-sizing: border-box; */
 }
 
 /* ----- Layout & Design ----- */
 body {
-  background-color: var(--bg-primary, #000);
-  color: var(--text-primary);
   padding: var(--space-3);
+  color: var(--text-primary);
+  background-color: var(--bg-primary, #000);
 }
 
 body {
   font-family: system-ui, sans-serif;
   font-size: 13px;
-  font-weight: 400;
   font-style: normal;
+  font-weight: 400;
 }
 
 b,
@@ -81,8 +81,8 @@ h6 {
 
 /* ----- Page Header Section ----- */
 .page-header {
-  margin-bottom: var(--space-4);
   padding-bottom: var(--space-3);
+  margin-bottom: var(--space-4);
   border-bottom: 1px solid var(--border-color);
 }
 
@@ -93,8 +93,8 @@ h6 {
 
 .page-header .subtitle {
   margin: 0;
-  color: var(--text-secondary);
   font-size: 1.1rem;
+  color: var(--text-secondary);
 }
 
 /* Fallback for standalone .title (if used outside page-header) */

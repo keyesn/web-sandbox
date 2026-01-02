@@ -11,10 +11,10 @@
 }
 
 .ui-library-home .intro {
-  color: var(--text-secondary, #666);
   margin-bottom: 2rem;
   font-size: 1.1rem;
   line-height: 1.6;
+  color: var(--text-secondary, #666);
 }
 
 .collection-grid {
@@ -25,14 +25,14 @@
 }
 
 .collection-card {
-  border: 1px solid var(--border-color, #e0e0e0);
-  border-radius: 8px;
-  padding: 2rem;
-  background: var(--surface-color, #fff);
-  box-shadow: 0 2px 4px rgb(0 0 0 / 5%);
-  transition: all 0.3s ease;
   display: flex;
   flex-direction: column;
+  padding: 2rem;
+  background: var(--surface-color, #fff);
+  border: 1px solid var(--border-color, #e0e0e0);
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgb(0 0 0 / 5%);
+  transition: all 0.3s ease;
 }
 
 .collection-card:hover {
@@ -47,10 +47,10 @@
 }
 
 .collection-card p {
-  color: var(--text-secondary, #666);
-  line-height: 1.6;
-  margin-bottom: 1.5rem;
   flex-grow: 1;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+  color: var(--text-secondary, #666);
 }
 
 .collection-card .btn {
@@ -63,10 +63,10 @@
 }
 
 .breadcrumb {
+  padding-bottom: 1rem;
+  margin-bottom: 2rem;
   font-size: 0.9rem;
   color: var(--text-secondary, #666);
-  margin-bottom: 2rem;
-  padding-bottom: 1rem;
   border-bottom: 1px solid var(--border-color, #e0e0e0);
 }
 
@@ -101,10 +101,10 @@
 
 /* Component Section */
 .component-section {
-  border: 1px solid var(--border-color, #e0e0e0);
-  border-radius: 8px;
   padding: 2rem;
   background: var(--surface-color, #fff);
+  border: 1px solid var(--border-color, #e0e0e0);
+  border-radius: 8px;
 }
 
 .component-section h2 {
@@ -115,9 +115,9 @@
 }
 
 .section-description {
-  color: var(--text-secondary, #666);
   margin-bottom: 1.5rem;
   font-size: 0.95rem;
+  color: var(--text-secondary, #666);
 }
 
 .component-showcase {
@@ -130,132 +130,82 @@
 /* Button Styles */
 .btn {
   padding: 0.5rem 1.5rem;
-  border: none;
-  border-radius: 4px;
+  font-family: inherit;
   font-size: 1rem;
   cursor: pointer;
+  border: none;
+  border-radius: 4px;
   transition: all 0.2s ease;
-  font-family: inherit;
 }
 
 .btn-primary {
-  background-color: var(--primary-color, #007bff);
   color: white;
+  background-color: var(--primary-color, #007bff);
 }
 
 .btn-primary:hover:not(:disabled) {
   background-color: var(--primary-hover, #0056b3);
-  transform: translateY(-1px);
   box-shadow: 0 2px 8px rgb(0 123 255 / 30%);
+  transform: translateY(-1px);
 }
 
 .btn-secondary {
-  background-color: var(--secondary-color, #6c757d);
   color: white;
+  background-color: var(--secondary-color, #6c757d);
 }
 
 .btn-secondary:hover:not(:disabled) {
   background-color: var(--secondary-hover, #545b62);
-  transform: translateY(-1px);
   box-shadow: 0 2px 8px rgb(108 117 125 / 30%);
+  transform: translateY(-1px);
 }
 
 /* Button - Expand One */
 .btn-expand-one {
-  cursor: pointer;
   position: relative;
   padding: 10px 24px;
-  font-size: 18px;
-  color: rgb(193 163 98);
-  border: 2px solid rgb(193 163 98);
-  border-radius: 34px;
-  background-color: transparent;
-  font-weight: 600;
-  transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
   overflow: hidden;
+  font-size: 18px;
+  font-weight: 600;
+  color: rgb(255 169 77);
+  cursor: pointer;
+  background-color: transparent;
+  border: 2px solid rgb(255 169 77);
+  border-radius: 34px;
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 .btn-expand-one::before {
-  content: "";
   position: absolute;
   inset: 0;
-  margin: auto;
+  z-index: -1;
   width: 50px;
   height: 50px;
+  margin: auto;
+  content: "";
+  background-color: rgb(255 169 77);
   border-radius: inherit;
   scale: 0;
-  z-index: -1;
-  background-color: rgb(193 163 98);
   transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 .btn-expand-one:hover::before {
-  scale: 3;
+  scale: 5;
 }
 
 .btn-expand-one:hover {
   color: #212121;
+  box-shadow: 0 0 20px rgb(255 169 77 / 40%);
   scale: 1.1;
-  box-shadow: 0 0 20px rgb(193 163 98 / 40%);
 }
 
 .btn-expand-one:active {
   scale: 1;
 }
 
-/* Button - Expand Two */
-.btn-expand-two {
-  position: relative;
-  display: inline-block;
-  padding: 12px 24px;
-  border: none;
-  font-size: 16px;
-  background-color: var(--secondary-color); /* inherit */
-  border-radius: 100px;
-  font-weight: 600;
-  color: #ffffff40;
-  box-shadow: 0 0 0 2px #ffffff20;
-  cursor: pointer;
-  overflow: hidden;
-  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-}
-
-.btn-expand-two span:last-child {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 20px;
-  height: 20px;
-  background-color: #2196f3;
-  border-radius: 50%;
-  opacity: 0;
-  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
-}
-
-.btn-expand-two span:first-child {
-  position: relative;
-  z-index: 1;
-}
-
-.btn-expand-two:hover {
-  box-shadow: 0 0 0 5px #2195f360;
-  color: #fff;
-}
-
-.btn-expand-two:active {
-  scale: 0.95;
-}
-
-.btn-expand-two:hover span:last-child {
-  width: 150px;
-  height: 150px;
-  opacity: 1;
-}
-
 .btn:disabled {
-  opacity: 0.5;
   cursor: not-allowed;
+  opacity: 0.5;
 }
 
 /* Form Styles */
@@ -267,17 +217,17 @@
 }
 
 .form-group label {
+  font-size: 0.9rem;
   font-weight: 600;
   color: var(--text-primary, #333);
-  font-size: 0.9rem;
 }
 
 .form-group input {
   padding: 0.75rem;
+  font-family: inherit;
+  font-size: 1rem;
   border: 1px solid var(--border-color, #ccc);
   border-radius: 4px;
-  font-size: 1rem;
-  font-family: inherit;
   transition: border-color 0.2s ease;
 }
 
@@ -289,13 +239,13 @@
 
 /* Card Styles */
 .card {
-  border: 1px solid var(--border-color, #e0e0e0);
-  border-radius: 8px;
+  max-width: 350px;
   padding: 1.5rem;
   background: var(--card-bg, #fff);
+  border: 1px solid var(--border-color, #e0e0e0);
+  border-radius: 8px;
   box-shadow: 0 2px 4px rgb(0 0 0 / 5%);
   transition: box-shadow 0.2s ease;
-  max-width: 350px;
 }
 
 .card:hover {
@@ -309,7 +259,7 @@
 }
 
 .card p {
-  color: var(--text-secondary, #666);
-  line-height: 1.6;
   margin-bottom: 1rem;
+  line-height: 1.6;
+  color: var(--text-secondary, #666);
 }

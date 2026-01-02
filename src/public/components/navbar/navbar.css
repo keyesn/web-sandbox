@@ -12,20 +12,22 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+
   /* background: #222; */
   padding: 0.75rem 1rem;
+  margin-bottom: 21px;
+
   /* color: white; */
   border-bottom: 1px solid var(--border-color);
-  margin-bottom: 21px;
 }
 
 /* ----- Navigation Links ----- */
 .nav-links {
-  list-style: none;
-  overflow: hidden; /* REVIEW: */
   display: flex;
   gap: 0;
   width: 100%;
+  overflow: hidden; /* REVIEW: */
+  list-style: none;
 }
 
 .nav-links li.right {
@@ -34,9 +36,9 @@
 
 .nav-links a {
   display: block;
+  padding: 0.75rem 1rem;
   color: var(--text-primary);
   text-decoration: none;
-  padding: 0.75rem 1rem;
 }
 
 .nav-links a:hover {
@@ -45,38 +47,39 @@
 
 .nav-links a.active {
   color: var(--color-primary);
+
   /* border-bottom: 2px solid #fff; */
 }
 
 /* ----- Theme Toggle Button ----- */
 .theme-toggle {
-  background: none;
-  border: none;
-  color: var(--text-primary);
-  font-size: 1.25rem;
-  cursor: pointer;
-  padding: 0.75rem 1rem;
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 0.75rem 1rem;
+  font-size: 1.25rem;
+  color: var(--text-primary);
+  cursor: pointer;
+  background: none;
+  border: none;
   transition: transform 0.2s ease;
 }
 
 .theme-toggle:hover {
-  transform: scale(1.1);
   background-color: #333;
+  transform: scale(1.1);
 }
 
 /* ----- Mobile Responsive Styles ----- */
-@media (max-width: 600px) {
+@media (width <= 600px) {
   .nav-links {
     position: absolute;
     top: 56px;
     right: 0;
-    background: #222;
+    display: none;
     flex-direction: column;
     width: 200px;
-    display: none;
+    background: #222;
   }
 
   .nav-links.show {
