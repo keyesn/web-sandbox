@@ -20,6 +20,15 @@ semantic elements, accessibility roles, forms
 
 layout (Flexbox, Grid), selectors, cascade/specificity, variables, responsive design
 
+- [SVG Repo](https://www.svgrepo.com/) - Free SVG icon library
+
+## Asset References
+
+- [YSAP](https://ysap.sh/) - Simple website for generating a basic website
+- [Call To Inspiration](https://calltoinspiration.com/) - Digital Purple Hat for UX Designers & Developers
+- [UIVerse](https://uiverse.io/?ref=dailydev) - UI Components
+- [Animate UI](https://animate-ui.com/) - Animation examples
+
 ## JavaScript & DOM
 
 language fundamentals, DOM APIs, events, modules
