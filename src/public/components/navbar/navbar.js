@@ -117,6 +117,10 @@ function initThemeToggle(button) {
  * @param {string} theme - Current theme ("light" or "dark")
  */
 function updateThemeButton(button, theme) {
-  button.textContent = theme === "light" ? "☀️" : "🌙";
+  const icon = button.querySelector("#theme-icon");
+  if (icon) {
+    const iconSrc = theme === "light" ? "/assets/light-mode.svg" : "/assets/night-mode.svg";
+    icon.src = iconSrc;
+  }
   button.setAttribute("aria-label", theme === "light" ? "Switch to dark mode" : "Switch to light mode");
 }
