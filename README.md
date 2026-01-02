@@ -47,7 +47,25 @@ web-sandbox/
 │   ├── views/             # Server-rendered templates
 │   │   ├── layout.html    # Base layout template (DRY)
 │   │   └── pages/         # Page-specific content fragments
+│   │       ├── home.html
+│   │       ├── api-demo.html
+│   │       ├── ui-library.html        # Landing page
+│   │       └── ui-library/            # Component collection pages
+│   │           ├── buttons.html
+│   │           ├── forms.html
+│   │           └── cards.html
 │   └── public/            # Static front-end assets (CSS, JS, images)
+│       ├── components/    # Reusable UI components (navbar, footer)
+│       ├── js/            # Page-specific JavaScript
+│       │   ├── main.js
+│       │   ├── api-demo.js
+│       │   ├── ui-library.js          # Landing page script
+│       │   └── ui-library/            # Collection page scripts
+│       │       ├── buttons.js
+│       │       ├── forms.js
+│       │       └── cards.js
+│       ├── css/           # Page-specific styles
+│       └── shared/        # Global utilities
 │       ├── components/    # Reusable UI components
 │       ├── css/           # Stylesheets
 │       ├── js/            # ES modules

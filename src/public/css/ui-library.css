@@ -1,9 +1,96 @@
 /**
  * UI Library Page Styles
  * ----------------------
- * Styles specific to the ui-library.html page
+ * Styles specific to the ui-library pages
  * Includes component showcase styles, buttons, forms, cards, etc.
  */
+
+/* Landing Page - Home */
+.ui-library-home {
+  padding: 2rem 0;
+}
+
+.ui-library-home .intro {
+  color: var(--text-secondary, #666);
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.collection-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.collection-card {
+  border: 1px solid var(--border-color, #e0e0e0);
+  border-radius: 8px;
+  padding: 2rem;
+  background: var(--surface-color, #fff);
+  box-shadow: 0 2px 4px rgb(0 0 0 / 5%);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.collection-card:hover {
+  box-shadow: 0 8px 16px rgb(0 0 0 / 10%);
+}
+
+.collection-card h2 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  color: var(--color-primary, #333);
+}
+
+.collection-card p {
+  color: var(--text-secondary, #666);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+}
+
+.collection-card .btn {
+  align-self: flex-start;
+}
+
+/* Component Pages */
+.ui-library-page {
+  padding: 1rem 0;
+}
+
+.breadcrumb {
+  font-size: 0.9rem;
+  color: var(--text-secondary, #666);
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border-color, #e0e0e0);
+}
+
+.breadcrumb a {
+  color: var(--primary-color, #007bff);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.breadcrumb a:hover {
+  color: var(--primary-hover, #0056b3);
+  text-decoration: underline;
+}
+
+.breadcrumb span {
+  color: var(--text-primary, #333);
+}
+
+#component-showcase {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  padding: 1rem 0;
+}
 
 #design-components {
   display: flex;
@@ -24,7 +111,7 @@
   margin-top: 0;
   margin-bottom: 0.5rem;
   font-size: 1.5rem;
-  color: var(--text-primary, #333);
+  color: var(--color-primary, #333);
 }
 
 .section-description {
@@ -59,7 +146,7 @@
 .btn-primary:hover:not(:disabled) {
   background-color: var(--primary-hover, #0056b3);
   transform: translateY(-1px);
-  box-shadow: 0 2px 8px rgba(0, 123, 255, 0.3);
+  box-shadow: 0 2px 8px rgb(0 123 255 / 30%);
 }
 
 .btn-secondary {
@@ -70,7 +157,100 @@
 .btn-secondary:hover:not(:disabled) {
   background-color: var(--secondary-hover, #545b62);
   transform: translateY(-1px);
-  box-shadow: 0 2px 8px rgba(108, 117, 125, 0.3);
+  box-shadow: 0 2px 8px rgb(108 117 125 / 30%);
+}
+
+/* Button - Expand One */
+.btn-expand-one {
+  cursor: pointer;
+  position: relative;
+  padding: 10px 24px;
+  font-size: 18px;
+  color: rgb(193 163 98);
+  border: 2px solid rgb(193 163 98);
+  border-radius: 34px;
+  background-color: transparent;
+  font-weight: 600;
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  overflow: hidden;
+}
+
+.btn-expand-one::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 50px;
+  height: 50px;
+  border-radius: inherit;
+  scale: 0;
+  z-index: -1;
+  background-color: rgb(193 163 98);
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.btn-expand-one:hover::before {
+  scale: 3;
+}
+
+.btn-expand-one:hover {
+  color: #212121;
+  scale: 1.1;
+  box-shadow: 0 0 20px rgb(193 163 98 / 40%);
+}
+
+.btn-expand-one:active {
+  scale: 1;
+}
+
+/* Button - Expand Two */
+.btn-expand-two {
+  position: relative;
+  display: inline-block;
+  padding: 12px 24px;
+  border: none;
+  font-size: 16px;
+  background-color: var(--secondary-color); /* inherit */
+  border-radius: 100px;
+  font-weight: 600;
+  color: #ffffff40;
+  box-shadow: 0 0 0 2px #ffffff20;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.btn-expand-two span:last-child {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  background-color: #2196f3;
+  border-radius: 50%;
+  opacity: 0;
+  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.btn-expand-two span:first-child {
+  position: relative;
+  z-index: 1;
+}
+
+.btn-expand-two:hover {
+  box-shadow: 0 0 0 5px #2195f360;
+  color: #fff;
+}
+
+.btn-expand-two:active {
+  scale: 0.95;
+}
+
+.btn-expand-two:hover span:last-child {
+  width: 150px;
+  height: 150px;
+  opacity: 1;
 }
 
 .btn:disabled {
@@ -104,7 +284,7 @@
 .form-group input:focus {
   outline: none;
   border-color: var(--primary-color, #007bff);
-  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+  box-shadow: 0 0 0 3px rgb(0 123 255 / 10%);
 }
 
 /* Card Styles */
@@ -113,13 +293,13 @@
   border-radius: 8px;
   padding: 1.5rem;
   background: var(--card-bg, #fff);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2px 4px rgb(0 0 0 / 5%);
   transition: box-shadow 0.2s ease;
   max-width: 350px;
 }
 
 .card:hover {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgb(0 0 0 / 10%);
 }
 
 .card h3 {

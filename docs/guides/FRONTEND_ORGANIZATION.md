@@ -13,7 +13,11 @@ src/
 │   └── pages/                      # Page-specific content fragments
 │       ├── home.html
 │       ├── api-demo.html
-│       └── ui-library.html
+│       ├── ui-library.html         # UI library landing page
+│       └── ui-library/             # Component collection pages
+│           ├── buttons.html
+│           ├── forms.html
+│           └── cards.html
 └── public/                         # Static assets
     ├── components/                 # Reusable UI components
     │   ├── navbar/
@@ -28,7 +32,11 @@ src/
     └── js/                         # Page-specific JavaScript
         ├── main.js                 # Shared initialization (all pages)
         ├── api-demo.js             # API demo page logic
-        └── ui-library.js           # UI library page logic
+        ├── ui-library.js           # UI library landing page
+        └── ui-library/             # Component collection scripts
+            ├── buttons.js
+            ├── forms.js
+            └── cards.js
 ```
 
 ### Key Patterns
@@ -37,17 +45,52 @@ src/
 | --------- | -------- | ------- | -------- |
 | **Base Template** | `views/layout.html` | Shared HTML structure (DRY) | One file for all pages |
 | **Page Fragments** | `views/pages/*.html` | Page-specific `<main>` content | `api-demo.html`, `home.html` |
+| **Nested Pages** | `views/pages/<section>/` | Sub-pages for organized sections | `ui-library/buttons.html` |
 | **Page Config** | `server/utils/pages.js` | Route → metadata mapping | Title, subtitle, stylesheets, scripts |
 | **Shared Init** | `public/js/main.js` | Navbar/footer loading, error clearing | Runs on all pages |
 | **Page Scripts** | `public/js/*.js` | Page-specific logic | `api-demo.js`, `ui-library.js` |
+| **Nested Scripts** | `public/js/<section>/` | Scripts for nested pages | `ui-library/buttons.js` |
 | **Shared Utilities** | `public/shared/*.js` | Application-wide helpers | `api-client.js`, `error-display.js` |
 | **Page Styles** | `public/css/*.css` | Page-specific styling | `api-demo.css`, `ui-library.css` |
 
 ### Naming Convention
 
 - **Page files**: Match across layers: `api-demo.html` (view) ↔ `api-demo.js` (script) ↔ `api-demo.css` (style)
+- **Nested pages**: Mirror structure: `views/pages/ui-library/buttons.html` ↔ `public/js/ui-library/buttons.js`
 - **Utilities**: Descriptive function name: `api-client.js`, `error-display.js` (no page suffix)
 - **Components**: Folder name matches file prefix: `navbar/navbar.js`, `footer/footer.css`
+
+### Nested Page Pattern (✅ IMPLEMENTED)
+
+For sections with multiple related pages (like UI Library), use nested folders:
+
+**Structure:**
+
+- Landing page: `/ui-library` → `views/pages/ui-library.html`
+- Sub-pages: `/ui-library/buttons` → `views/pages/ui-library/buttons.html`
+
+**Benefits:**
+
+- **Clear hierarchy**: Related pages grouped together
+- **Scalable**: Easy to add more sub-pages without cluttering root
+- **Intuitive URLs**: `/ui-library/buttons`, `/ui-library/forms`, `/ui-library/cards`
+- **Consistent naming**: HTML/JS/CSS files mirror the route structure
+
+**Example (UI Library):**
+
+```text
+Routes                     Views                              Scripts
+/ui-library         →      pages/ui-library.html       →      js/ui-library.js
+/ui-library/buttons →      pages/ui-library/buttons.html →    js/ui-library/buttons.js
+/ui-library/forms   →      pages/ui-library/forms.html →      js/ui-library/forms.js
+/ui-library/cards   →      pages/ui-library/cards.html →      js/ui-library/cards.js
+```
+
+**When to use:**
+
+- Multiple related pages under one section
+- Need for a landing/index page with navigation to sub-pages
+- Logical grouping improves maintainability
 
 ---
 

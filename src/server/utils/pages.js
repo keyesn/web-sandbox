@@ -25,6 +25,27 @@ export const pages = {
     stylesheets: '<link rel="stylesheet" href="/css/ui-library.css" />',
     scripts: '<script type="module" src="/js/ui-library.js"></script>',
   },
+  "/ui-library/buttons": {
+    title: "Buttons",
+    subtitle: "Various button styles and states",
+    contentFile: "src/views/pages/ui-library/buttons.html",
+    stylesheets: '<link rel="stylesheet" href="/css/ui-library.css" />',
+    scripts: '<script type="module" src="/js/ui-library/buttons.js"></script>',
+  },
+  "/ui-library/forms": {
+    title: "Form Elements",
+    subtitle: "Input fields and form controls",
+    contentFile: "src/views/pages/ui-library/forms.html",
+    stylesheets: '<link rel="stylesheet" href="/css/ui-library.css" />',
+    scripts: '<script type="module" src="/js/ui-library/forms.js"></script>',
+  },
+  "/ui-library/cards": {
+    title: "Cards",
+    subtitle: "Content containers with borders and shadows",
+    contentFile: "src/views/pages/ui-library/cards.html",
+    stylesheets: '<link rel="stylesheet" href="/css/ui-library.css" />',
+    scripts: '<script type="module" src="/js/ui-library/cards.js"></script>',
+  },
 };
 
 /**

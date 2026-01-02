@@ -35,7 +35,11 @@ web-sandbox/
 │   │   └── pages/           # Page content fragments
 │   │       ├── home.html
 │   │       ├── api-demo.html
-│   │       └── ui-library.html
+│   │       ├── ui-library.html      # Landing page for UI library
+│   │       └── ui-library/          # Nested component collections
+│   │           ├── buttons.html
+│   │           ├── forms.html
+│   │           └── cards.html
 │   └── public/              # Frontend static assets
 │       ├── components/      # Reusable UI components
 │       │   ├── navbar/      # Each component in its own folder
@@ -48,7 +52,7 @@ web-sandbox/
 │       │       └── footer.js
 │       ├── css/             # Page-specific stylesheets
 │       │   ├── api-demo.css
-│       │   └── ui-library.css
+│       │   └── ui-library.css       # Shared by all UI library pages
 │       ├── shared/          # Global utilities and styles
 │       │   ├── styles.css   # Global CSS (resets, typography, layout)
 │       │   ├── api-client.js # Fetch wrapper for API calls
@@ -56,7 +60,11 @@ web-sandbox/
 │       └── js/              # Page-specific JavaScript
 │           ├── main.js      # Shared initialization (all pages)
 │           ├── api-demo.js  # API demo page logic
-│           └── ui-library.js # UI library page logic
+│           ├── ui-library.js        # UI library landing page
+│           └── ui-library/          # Component collection scripts
+│               ├── buttons.js
+│               ├── forms.js
+│               └── cards.js
 └── docs/                    # Project docs and learning guides
 ```
 
