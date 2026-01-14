@@ -5,10 +5,10 @@
   "description": "A personal web development sandbox project.",
   "type": "module",
   "scripts": {
-    "build:css": "esbuild src/frontend/css/index.css --bundle --minify --sourcemap --outfile=dist/bundle.css",
-    "build:css:watch": "esbuild src/frontend/css/index.css --bundle --minify --sourcemap --outfile=dist/bundle.css --watch",
-    "start": "npm run build:css && node src/backend/server.js",
-    "dev": "npm run build:css:watch & npm run start",
+    "build": "node build.js",
+    "build:watch": "node build.js --watch",
+    "start": "npm run build && node src/backend/server.js",
+    "dev": "npm run build:watch & node src/backend/server.js",
     "lint:css": "stylelint \"src/**/*.css\"",
     "lint:css:fix": "stylelint \"src/**/*.css\" --fix"
   },
