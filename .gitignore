@@ -1,16 +1,25 @@
-*.log
-.idea
+# vscode
 .vscode
-.idea/**/*
-.vscode/**/*
-.DS_Store
+
+# IntelliJ
+*iml
+.idea
+desktop.ini
+
+# npm
 npm-debug.log.*
 node_modules
-node_modules/**/*
+package-lock.json
+
+# logs
+*.log
+logs/*
+
+# Exclude macOS Finder (System Explorer) View States
+.DS_Store
+
+# tbd
 .eslintcache
 cert
-logs/*
-desktop.ini
-package-lock.json
 .history
 .env
