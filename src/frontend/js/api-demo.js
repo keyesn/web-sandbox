@@ -1,4 +1,4 @@
-import { getData, getHealth, postData } from "../shared/api-client.js";
+import { getData, getHealth, postData } from "./utils/api-client.js";
 
 /* -------- Health Button -------- */
 const btnHealth = document.querySelector("#btnHealth");

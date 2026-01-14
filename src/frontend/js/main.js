@@ -10,7 +10,7 @@
 
 import { loadFooter } from "../components/footer/footer.js";
 import { loadNavbar } from "../components/navbar/navbar.js";
-import { clearErrors } from "../shared/error-display.js";
+import { clearErrors } from "./utils/error-display.js";
 
 // Clear any previous errors before loading components
 clearErrors();

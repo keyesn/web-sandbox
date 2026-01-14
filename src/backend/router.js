@@ -3,9 +3,9 @@ import path from "path";
 import { CACHE_STRATEGY } from "./config.js";
 import { handleApi } from "./handlers/api-routes.js";
 import { getPageConfig } from "./utils/pages.js";
-import { renderTemplate } from "./utils/template.js";
 
 const frontendDir = path.resolve("src/frontend");
+const distDir = path.resolve("dist");
 
 const mimeTypes = {
   ".html": "text/html; charset=utf-8",
@@ -58,20 +58,11 @@ export async function router(req, res) {
 
   try {
     // Check if this is a known page route
-    const pageConfig = getPageConfig(pathname);
+    const pageFile = getPageConfig(pathname);
 
-    if (pageConfig) {
-      // Render page using template system
-      const layout = await readFile("src/views/layout.html", "utf-8");
-      const content = await readFile(pageConfig.contentFile, "utf-8");
-
-      const html = renderTemplate(layout, {
-        PAGE_TITLE: pageConfig.title,
-        PAGE_SUBTITLE: pageConfig.subtitle,
-        PAGE_STYLESHEETS: pageConfig.stylesheets,
-        PAGE_CONTENT: content,
-        PAGE_SCRIPTS: pageConfig.scripts,
-      });
+    if (pageFile) {
+      // Serve complete HTML page directly (no template rendering needed)
+      const html = await readFile(pageFile, "utf-8");
 
       const cacheControl = CACHE_STRATEGY === "dev" ? "no-store" : "no-cache, must-revalidate";
       res.writeHead(200, { "Content-Type": "text/html; charset=utf-8", "Cache-Control": cacheControl });
@@ -80,41 +71,63 @@ export async function router(req, res) {
     }
 
     // Fall back to static file serving for assets (CSS, JS, images, etc.)
-    // Convert URL path to file path: "/" -> "index.html", "/api" -> "api"
-    const relativePath = pathname === "/" ? "index.html" : pathname.slice(1);
-    const decodedPath = decodeURIComponent(relativePath);
-    const normalized = path.normalize(decodedPath).replace(/^([.][.][/\\])+/, "");
-    let absolutePath = path.resolve(frontendDir, normalized);
+    // Check dist folder first (for built/bundled files), then frontend folder
+    let searchPaths = [];
 
-    // Security check: prevent directory traversal
-    if (!absolutePath.startsWith(frontendDir)) {
-      res.writeHead(400, { "Content-Type": "text/plain" });
-      res.end("Bad Request");
-      return;
+    if (pathname.startsWith("/dist/")) {
+      // Serve from dist folder
+      searchPaths.push({
+        dir: distDir,
+        relativePath: pathname.slice(6), // Remove "/dist/" prefix
+      });
+    } else {
+      // Serve from frontend folder
+      searchPaths.push({
+        dir: frontendDir,
+        relativePath: pathname === "/" ? "index.html" : pathname.slice(1),
+      });
     }
 
-    // Try to read the file as-is first
     let data;
-    let finalPath = absolutePath;
+    let finalPath;
 
-    try {
-      data = await readFile(absolutePath);
-    } catch (firstErr) {
-      // If file not found and no extension, try appending .html
-      if (firstErr?.code === "ENOENT" && !path.extname(absolutePath)) {
-        finalPath = absolutePath + ".html";
+    for (const { dir, relativePath } of searchPaths) {
+      const decodedPath = decodeURIComponent(relativePath);
+      const normalized = path.normalize(decodedPath).replace(/^([.][.][/\\])+/, "");
+      let absolutePath = path.resolve(dir, normalized);
 
-        // Security check after adding .html extension
-        if (!finalPath.startsWith(frontendDir)) {
-          res.writeHead(400, { "Content-Type": "text/plain" });
-          res.end("Bad Request");
-          return;
-        }
-
-        data = await readFile(finalPath); // Let this throw if still not found
-      } else {
-        throw firstErr; // Re-throw if it's not ENOENT or already has extension
+      // Security check: prevent directory traversal
+      if (!absolutePath.startsWith(dir)) {
+        continue;
       }
+
+      try {
+        data = await readFile(absolutePath);
+        finalPath = absolutePath;
+        break;
+      } catch (err) {
+        if (err?.code === "ENOENT") {
+          // If file not found and no extension, try appending .html
+          if (!path.extname(absolutePath)) {
+            const htmlPath = absolutePath + ".html";
+            if (htmlPath.startsWith(dir)) {
+              try {
+                data = await readFile(htmlPath);
+                finalPath = htmlPath;
+                break;
+              } catch {
+                // Continue to next search path
+              }
+            }
+          }
+        }
+      }
+    }
+
+    if (!data) {
+      res.writeHead(404, { "Content-Type": "text/plain" });
+      res.end("Not Found");
+      return;
     }
 
     const ext = path.extname(finalPath).toLowerCase();

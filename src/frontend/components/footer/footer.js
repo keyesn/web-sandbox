@@ -10,7 +10,7 @@
  *   await loadFooter('#footer');
  */
 
-import { showError } from "../../shared/error-display.js";
+import { showError } from "../../js/utils/error-display.js";
 
 /**
  * Load footer HTML and initialize functionality

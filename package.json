@@ -5,8 +5,8 @@
   "description": "A personal web development sandbox project.",
   "type": "module",
   "scripts": {
-    "build:css": "esbuild src/frontend/css/index.css --bundle --minify --sourcemap --outfile=src/frontend/css/bundle.css",
-    "build:css:watch": "esbuild src/frontend/css/index.css --bundle --minify --sourcemap --outfile=src/frontend/css/bundle.css --watch",
+    "build:css": "esbuild src/frontend/css/index.css --bundle --minify --sourcemap --outfile=dist/bundle.css",
+    "build:css:watch": "esbuild src/frontend/css/index.css --bundle --minify --sourcemap --outfile=dist/bundle.css --watch",
     "start": "npm run build:css && node src/backend/server.js",
     "dev": "npm run build:css:watch & npm run start",
     "lint:css": "stylelint \"src/**/*.css\"",

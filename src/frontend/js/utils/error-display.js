@@ -5,7 +5,7 @@
  * Keeps errors visible and actionable without using console.
  *
  * Usage:
- *   import { showError, clearErrors } from '../shared/error-display.js';
+ *   import { showError, clearErrors } from './utils/error-display.js';
  *   showError('Navbar failed to load', () => loadNavbar('#navbar'));
  */
 

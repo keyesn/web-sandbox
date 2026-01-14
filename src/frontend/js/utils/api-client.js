@@ -1,4 +1,9 @@
 /**
+ * API client utility for communicating with backend endpoints
+ * Provides fetch wrappers for common API operations
+ */
+
+/**
  * Fetch the backend health status from the /api/health endpoint
  * @returns {Promise<object>} Backend health response object
  */

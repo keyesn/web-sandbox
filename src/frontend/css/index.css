@@ -11,7 +11,7 @@
  */
 
 /* Global and shared styles */
-@import url("../shared/styles.css");
+@import url("./global.css");
 
 /* Component-specific styles */
 @import url("../components/navbar/navbar.css");
