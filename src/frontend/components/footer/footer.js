@@ -29,7 +29,7 @@ export async function loadFooter(containerSelector) {
     const response = await fetch("/components/footer/footer.html");
 
     if (!response.ok) {
-      throw new Error(`Server returned ${response.status}`);
+      throw new Error(`Backend returned ${response.status}`);
     }
 
     const html = await response.text();

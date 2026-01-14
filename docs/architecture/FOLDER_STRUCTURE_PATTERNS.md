@@ -12,25 +12,25 @@ Understanding different approaches to organizing code in web applications - from
 
 ## Current Project Structure
 
-**WebSandbox** uses **server-side template rendering** with **component-based organization**:
+**WebSandbox** uses **backend-side template rendering** with **component-based organization**:
 
 ```text
 web-sandbox/
 ├── src/
-│   ├── server/              # Backend (by layer)
-│   │   ├── server.js        # HTTP server entry point
+│   ├── backend/              # Backend (by layer)
+│   │   ├── backend.js        # HTTP backend entry point
 │   │   ├── router.js        # Request routing + template rendering
-│   │   ├── config.js        # Server configuration
+│   │   ├── config.js        # backend configuration
 │   │   ├── handlers/        # API route handlers
 │   │   │   ├── api-routes.js
 │   │   │   ├── data.js
 │   │   │   └── health.js
-│   │   └── utils/           # Server utilities
+│   │   └── utils/           # backend utilities
 │   │       ├── template.js  # Template renderer
 │   │       ├── pages.js     # Page configuration
 │   │       ├── json.js
 │   │       └── validators.js
-│   ├── views/               # Server-rendered templates
+│   ├── views/               # backend-rendered templates
 │   │   ├── layout.html      # Base layout (shared structure)
 │   │   └── pages/           # Page content fragments
 │   │       ├── home.html
@@ -40,7 +40,7 @@ web-sandbox/
 │   │           ├── buttons.html
 │   │           ├── forms.html
 │   │           └── cards.html
-│   └── public/              # Frontend static assets
+│   └── frontend/              # Frontend static assets
 │       ├── components/      # Reusable UI components
 │       │   ├── navbar/      # Each component in its own folder
 │       │   │   ├── navbar.html
@@ -71,9 +71,9 @@ web-sandbox/
 **Philosophy**:
 
 - **DRY for HTML**: Base layout template eliminates duplication; pages are just content fragments
-- **Server-side rendering**: Router renders templates with page-specific data before sending to client
+- **backend-side rendering**: Router renders templates with page-specific data before sending to client
 - **Component co-location**: Related files (HTML, CSS, JS) stay together in component folders
-- **Clear separation**: Templates in `views/`, static assets in `public/`, server logic in `server/`
+- **Clear separation**: Templates in `views/`, static assets in `frontend/`, backend logic in `backend/`
 - **Explicit over implicit**: Template rendering is plain string replacement, no magic
 
 ## Frontend Organization Patterns
@@ -83,7 +83,7 @@ web-sandbox/
 Group files by their type: HTML, CSS, JavaScript.
 
 ```text
-public/
+frontend/
 ├── index.html
 ├── about.html
 ├── css/
@@ -119,7 +119,7 @@ public/
 Group all files for a component together.
 
 ```text
-public/
+frontend/
 ├── index.html
 ├── components/
 │   ├── navbar/
@@ -161,7 +161,7 @@ public/
 Organize components by their atomic level.
 
 ```text
-public/
+frontend/
 ├── components/
 │   ├── atoms/           # Smallest units
 │   │   ├── button/
@@ -203,7 +203,7 @@ public/
 Organize by feature/module rather than by technical type.
 
 ```text
-public/
+frontend/
 ├── index.html
 ├── features/
 │   ├── auth/
@@ -283,8 +283,8 @@ src/
 Organize by architectural layer: routes, controllers, models, views.
 
 ```text
-server/
-├── server.js
+backend/
+├── backend.js
 ├── routes/
 │   ├── userRoutes.js
 │   ├── postRoutes.js
@@ -325,8 +325,8 @@ server/
 Organize by business domain/feature.
 
 ```text
-server/
-├── server.js
+backend/
+├── backend.js
 ├── features/
 │   ├── users/
 │   │   ├── userRoutes.js
@@ -372,8 +372,8 @@ server/
 Organize by architectural boundaries with dependency rules.
 
 ```text
-server/
-├── server.js
+backend/
+├── backend.js
 ├── domain/              # Business logic (no dependencies)
 │   ├── entities/
 │   │   ├── User.js
@@ -419,11 +419,11 @@ server/
 Feature modules with clear boundaries within a single codebase.
 
 ```text
-server/
-├── server.js
+backend/
+├── backend.js
 ├── modules/
 │   ├── users/
-│   │   ├── api/         # Public interface
+│   │   ├── api/         # frontend interface
 │   │   │   └── routes.js
 │   │   ├── domain/      # Internal logic
 │   │   │   ├── userService.js
@@ -511,7 +511,7 @@ Frontend and backend are separate repos.
 ```text
 frontend-repo/
 ├── src/
-├── public/
+├── frontend/
 └── package.json
 
 backend-repo/
@@ -544,11 +544,11 @@ Frontend assets served by backend as static files.
 
 ```text
 project/
-├── server/              # Backend
-│   ├── server.js
+├── backend/              # Backend
+│   ├── backend.js
 │   ├── router.js
 │   └── handlers/
-└── public/              # Frontend (served as static)
+└── frontend/              # Frontend (served as static)
     ├── index.html
     ├── css/
     ├── js/
@@ -557,7 +557,7 @@ project/
 
 **Pros:**
 
-- Simple deployment (one server)
+- Simple deployment (one backend)
 - No CORS issues
 - Single codebase, single repo
 - Perfect for learning and small apps
@@ -569,7 +569,7 @@ project/
 - Harder to use modern build tools
 - Not suitable for microservices
 
-**Best for:** Learning projects, small apps, MVPs, server-rendered apps
+**Best for:** Learning projects, small apps, MVPs, backend-rendered apps
 
 ---
 
@@ -585,8 +585,8 @@ project/
 - MVP or prototype
 
 Current WebSandbox pattern
-- public/ (by type + components)
-- server/ (by layer)
+- frontend/ (by type + components)
+- backend/ (by layer)
 ```
 
 ### Scale to Components

@@ -1,14 +1,14 @@
 # Frontend Folder Organization
 
-## Current Architecture: Server-Side Template Rendering ✅ IMPLEMENTED
+## Current Architecture: backend-Side Template Rendering ✅ IMPLEMENTED
 
-WebSandbox now uses **server-side template rendering** to eliminate HTML duplication while maintaining clarity.
+WebSandbox now uses **backend-side template rendering** to eliminate HTML duplication while maintaining clarity.
 
 ### Structure Overview
 
 ```text
 src/
-├── views/                          # Server-rendered templates
+├── views/                          # backend-rendered templates
 │   ├── layout.html                 # Base layout (shared structure)
 │   └── pages/                      # Page-specific content fragments
 │       ├── home.html
@@ -18,7 +18,7 @@ src/
 │           ├── buttons.html
 │           ├── forms.html
 │           └── cards.html
-└── public/                         # Static assets
+└── frontend/                         # Static assets
     ├── components/                 # Reusable UI components
     │   ├── navbar/
     │   └── footer/
@@ -41,22 +41,22 @@ src/
 
 ### Key Patterns
 
-| File Type | Location | Purpose | Examples |
-| --------- | -------- | ------- | -------- |
-| **Base Template** | `views/layout.html` | Shared HTML structure (DRY) | One file for all pages |
-| **Page Fragments** | `views/pages/*.html` | Page-specific `<main>` content | `api-demo.html`, `home.html` |
-| **Nested Pages** | `views/pages/<section>/` | Sub-pages for organized sections | `ui-library/buttons.html` |
-| **Page Config** | `server/utils/pages.js` | Route → metadata mapping | Title, subtitle, stylesheets, scripts |
-| **Shared Init** | `public/js/main.js` | Navbar/footer loading, error clearing | Runs on all pages |
-| **Page Scripts** | `public/js/*.js` | Page-specific logic | `api-demo.js`, `ui-library.js` |
-| **Nested Scripts** | `public/js/<section>/` | Scripts for nested pages | `ui-library/buttons.js` |
-| **Shared Utilities** | `public/shared/*.js` | Application-wide helpers | `api-client.js`, `error-display.js` |
-| **Page Styles** | `public/css/*.css` | Page-specific styling | `api-demo.css`, `ui-library.css` |
+| File Type            | Location                 | Purpose                               | Examples                              |
+| -------------------- | ------------------------ | ------------------------------------- | ------------------------------------- |
+| **Base Template**    | `views/layout.html`      | Shared HTML structure (DRY)           | One file for all pages                |
+| **Page Fragments**   | `views/pages/*.html`     | Page-specific `<main>` content        | `api-demo.html`, `home.html`          |
+| **Nested Pages**     | `views/pages/<section>/` | Sub-pages for organized sections      | `ui-library/buttons.html`             |
+| **Page Config**      | `backend/utils/pages.js` | Route → metadata mapping              | Title, subtitle, stylesheets, scripts |
+| **Shared Init**      | `frontend/js/main.js`    | Navbar/footer loading, error clearing | Runs on all pages                     |
+| **Page Scripts**     | `frontend/js/*.js`       | Page-specific logic                   | `api-demo.js`, `ui-library.js`        |
+| **Nested Scripts**   | `frontend/js/<section>/` | Scripts for nested pages              | `ui-library/buttons.js`               |
+| **Shared Utilities** | `frontend/shared/*.js`   | Application-wide helpers              | `api-client.js`, `error-display.js`   |
+| **Page Styles**      | `frontend/css/*.css`     | Page-specific styling                 | `api-demo.css`, `ui-library.css`      |
 
 ### Naming Convention
 
 - **Page files**: Match across layers: `api-demo.html` (view) ↔ `api-demo.js` (script) ↔ `api-demo.css` (style)
-- **Nested pages**: Mirror structure: `views/pages/ui-library/buttons.html` ↔ `public/js/ui-library/buttons.js`
+- **Nested pages**: Mirror structure: `views/pages/ui-library/buttons.html` ↔ `frontend/js/ui-library/buttons.js`
 - **Utilities**: Descriptive function name: `api-client.js`, `error-display.js` (no page suffix)
 - **Components**: Folder name matches file prefix: `navbar/navbar.js`, `footer/footer.css`
 
@@ -99,7 +99,7 @@ Routes                     Views                              Scripts
 If you want even clearer semantics, use this approach:
 
 ```text
-public/
+frontend/
 ├── index.html
 ├── demos/                           # NEW: Directory for demo pages
 │   ├── api-testing.html
@@ -132,7 +132,7 @@ public/
 If you anticipate more utilities beyond `api-client.js`:
 
 ```text
-public/
+frontend/
 ├── index.html
 ├── api.html                         # Keep as is
 ├── ui-library.html
@@ -175,12 +175,12 @@ public/
 
 **Files to rename:**
 
-- `public/api.html` → `public/api-demo.html`
-- `public/js/api-page.js` → `public/js/api-demo.js`
+- `frontend/api.html` → `frontend/api-demo.html`
+- `frontend/js/api-page.js` → `frontend/js/api-demo.js`
 
 **Files to update imports in:**
 
-- `public/api-demo.html` - Change script src from `/js/api-page.js` to `/js/api-demo.js`
+- `frontend/api-demo.html` - Change script src from `/js/api-page.js` to `/js/api-demo.js`
 
 ---
 
@@ -208,7 +208,7 @@ This makes it immediately obvious whether a file is reusable.
 ### As you add more pages
 
 ```text
-public/
+frontend/
 ├── index.html
 ├── api-demo.html
 ├── ui-library.html
@@ -229,7 +229,7 @@ Clear naming keeps this manageable.
 **When you hit ~5+ utilities**, consider restructuring to Option 3:
 
 ```text
-public/
+frontend/
 ├── shared/
 │   ├── api-client.js                # One or two? Stay flat
 │   └── error-display.js
@@ -238,7 +238,7 @@ public/
 vs.
 
 ```text
-public/
+frontend/
 ├── shared/
 │   ├── api/
 │   │   ├── client.js

@@ -23,7 +23,7 @@ const btnPost = document.querySelector("#btnPost");
 const outputPost = document.querySelector("#outputPost");
 
 btnPost.addEventListener("click", async () => {
-  const payload = { message: "Hello, server!" };
+  const payload = { message: "Hello, backend!" };
   const data = await postData(payload);
   outputPost.textContent = JSON.stringify(data, null, 2);
 });

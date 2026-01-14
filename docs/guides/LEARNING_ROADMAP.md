@@ -8,7 +8,7 @@ A progressive roadmap for developing and experimenting with the WebSandbox appli
 
 **Current State**:
 
-- [x] Basic HTTP server using Node.js `http` module
+- [x] Basic HTTP backend using Node.js `http` module
 - [x] Router that separates `/api` from static file serving
 - [x] Single health-check endpoint
 - [x] Query-aware routing (tolerates `?` in URLs)
@@ -54,19 +54,19 @@ A progressive roadmap for developing and experimenting with the WebSandbox appli
 
 ## Phase 2: Form Handling & Data Submission
 
-**Goals**: Learn client-side form validation, data serialization, and server-side validation patterns.
+**Goals**: Learn client-side form validation, data serialization, and backend-side validation patterns.
 
 **Expected Changes**:
 
-- [ ] Add form to `public/index.html` (input fields, submit button)
-- [ ] Create form handler in `public/js/main.js` (validation, loading states)
-- [x] Create POST endpoint in `server/handlers/api.js` (validate, store in memory)
-- [ ] Update `public/js/api.js` with form submission function
+- [ ] Add form to `frontend/index.html` (input fields, submit button)
+- [ ] Create form handler in `frontend/js/main.js` (validation, loading states)
+- [x] Create POST endpoint in `backend/handlers/api.js` (validate, store in memory)
+- [ ] Update `frontend/js/api.js` with form submission function
 - [ ] Implement error display in DOM
 
 **Concepts**:
 
-- [ ] Form validation (client-side UX, server-side security)
+- [ ] Form validation (client-side UX, backend-side security)
 - [ ] Fetch POST requests with JSON body
 - [ ] Request/response lifecycles
 - [ ] Error handling and user feedback
@@ -75,7 +75,7 @@ A progressive roadmap for developing and experimenting with the WebSandbox appli
 
 - [ ] Form submission works end-to-end
 - [ ] Invalid inputs show friendly errors
-- [ ] Server logs validation failures
+- [ ] backend logs validation failures
 
 ## Phase 3: Data Persistence (In-Memory)
 
@@ -83,7 +83,7 @@ A progressive roadmap for developing and experimenting with the WebSandbox appli
 
 **Expected Changes**:
 
-- [ ] Add in-memory data store (simple JS array/object in `server/handlers/api.js`)
+- [ ] Add in-memory data store (simple JS array/object in `backend/handlers/api.js`)
 - [ ] Create GET `/api/items` to list all data
 - [ ] Create POST `/api/items` to add data
 - [ ] Create DELETE `/api/items/:id` to remove data
@@ -94,7 +94,7 @@ A progressive roadmap for developing and experimenting with the WebSandbox appli
 - [ ] In-memory vs. persistent storage
 - [ ] CRUD operations (Create, Read, Update, Delete)
 - [ ] URL parameters (parsing `/api/items/123`)
-- [ ] State management on the server
+- [ ] State management on the backend
 
 **Success Criteria**:
 
@@ -120,7 +120,7 @@ A progressive roadmap for developing and experimenting with the WebSandbox appli
 
 **Success Criteria**:
 
-- [ ] Data persists across server restarts
+- [ ] Data persists across backend restarts
 - [ ] Concurrent requests don't corrupt data (or demonstrate the problem)
 
 ## Phase 5: Authentication & Sessions
@@ -153,9 +153,9 @@ A progressive roadmap for developing and experimenting with the WebSandbox appli
 
 **Expected Changes**:
 
-- [ ] Implement WebSocket server (Node.js `ws` library or native)
+- [ ] Implement WebSocket backend (Node.js `ws` library or native)
 - [ ] Broadcast data changes to all connected clients
-- [ ] Update UI when server sends data
+- [ ] Update UI when backend sends data
 
 **Concepts**:
 
@@ -206,7 +206,7 @@ As you progress, link from code/PRs to detailed docs:
 - `HTTP Fundamentals`: How the protocol works
 - `Request Routing`: Manual URL parsing and dispatch
 - `Stylesheet Management`: Modular CSS, bundling, and build tools (see `docs/STYLESHEET_MANAGEMENT.md`)
-- `Form Validation`: Client-side UX vs. server-side security
+- `Form Validation`: Client-side UX vs. backend-side security
 - `File I/O`: When and why to persist data
 - `WebSockets`: Real-time patterns and trade-offs
 

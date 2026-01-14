@@ -10,14 +10,14 @@ Successfully implemented error boundaries for the WebSandbox project. The system
 
 Added `<div id="app-errors"></div>` to the top of both HTML files:
 
-- [index.html](../src/public/index.html)
-- [api.html](../src/public/api.html)
+- [index.html](../src/frontend/index.html)
+- [api.html](../src/frontend/api.html)
 
 This div serves as a container where error messages are dynamically inserted.
 
 ### 2. Error Display Utility Module
 
-Created [shared/error-display.js](../src/public/shared/error-display.js) with two functions:
+Created [shared/error-display.js](../src/frontend/shared/error-display.js) with two functions:
 
 **`showError(errorMessage, onRetry, errorZoneId)`**
 
@@ -34,7 +34,7 @@ Created [shared/error-display.js](../src/public/shared/error-display.js) with tw
 
 ### 3. Error Display Styling
 
-Added CSS styles to [shared/styles.css](../src/public/shared/styles.css):
+Added CSS styles to [shared/styles.css](../src/frontend/shared/styles.css):
 
 - `.error-message` - Red error container with left border
 - `.error-retry-btn` - White retry button with hover effect
@@ -117,7 +117,7 @@ Added CSS styles to [shared/styles.css](../src/public/shared/styles.css):
 
 ### Test 2: Container Not Found
 
-1. Edit [main.js](../src/public/js/main.js)
+1. Edit [main.js](../src/frontend/js/main.js)
 2. Change `loadNavbar("#navbar")` to `loadNavbar("#wrong-id")`
 3. Reload page
 4. See error about missing container
@@ -132,16 +132,16 @@ Added CSS styles to [shared/styles.css](../src/public/shared/styles.css):
 
 ## Files Modified
 
-| File                                                      | Changes                |
-| --------------------------------------------------------- | ---------------------- |
-| [index.html](../src/public/index.html)                    | Added error zone div   |
-| [api.html](../src/public/api.html)                        | Added error zone div   |
-| [error-display.js](../src/public/shared/error-display.js) | New module             |
-| [styles.css](../src/public/shared/styles.css)             | Added error styling    |
-| [navbar.js](../src/public/components/navbar/navbar.js)    | Updated error handling |
-| [footer.js](../src/public/components/footer/footer.js)    | Updated error handling |
-| [main.js](../src/public/js/main.js)                       | Clear errors on load   |
-| [api-page.js](../src/public/js/api-page.js)               | Clear errors on load   |
+| File                                                        | Changes                |
+| ----------------------------------------------------------- | ---------------------- |
+| [index.html](../src/frontend/index.html)                    | Added error zone div   |
+| [api.html](../src/frontend/api.html)                        | Added error zone div   |
+| [error-display.js](../src/frontend/shared/error-display.js) | New module             |
+| [styles.css](../src/frontend/shared/styles.css)             | Added error styling    |
+| [navbar.js](../src/frontend/components/navbar/navbar.js)    | Updated error handling |
+| [footer.js](../src/frontend/components/footer/footer.js)    | Updated error handling |
+| [main.js](../src/frontend/js/main.js)                       | Clear errors on load   |
+| [api-page.js](../src/frontend/js/api-page.js)               | Clear errors on load   |
 
 ## Next Steps
 

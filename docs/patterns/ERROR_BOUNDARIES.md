@@ -11,14 +11,14 @@ Error boundaries are a pattern for gracefully handling component failures and di
 
 ## Files Modified
 
-- **src/public/index.html** - Added error zone div
-- **src/public/api.html** - Added error zone div
-- **src/public/shared/error-display.js** - New utility module
-- **src/public/shared/styles.css** - Added error message styling
-- **src/public/components/navbar/navbar.js** - Updated to show user-facing errors
-- **src/public/components/footer/footer.js** - Updated to show user-facing errors
-- **src/public/js/main.js** - Added clearErrors call
-- **src/public/js/api-page.js** - Added clearErrors call
+- **src/frontend/index.html** - Added error zone div
+- **src/frontend/api.html** - Added error zone div
+- **src/frontend/shared/error-display.js** - New utility module
+- **src/frontend/shared/styles.css** - Added error message styling
+- **src/frontend/components/navbar/navbar.js** - Updated to show user-facing errors
+- **src/frontend/components/footer/footer.js** - Updated to show user-facing errors
+- **src/frontend/js/main.js** - Added clearErrors call
+- **src/frontend/js/api-page.js** - Added clearErrors call
 
 ## What This Teaches
 

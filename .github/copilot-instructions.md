@@ -12,36 +12,36 @@ This is a **learning-first, framework-free web application** for understanding h
 
 ### Request Flow
 
-1. **server/server.js** - HTTP server entry point (Node `http` module, port 3000)
-2. **server/router.js** - Routes incoming requests:
-   - `/api/*` → server/handlers/api-routes.js
+1. **backend/backend.js** - HTTP backend entry point (Node `http` module, port 3000)
+2. **backend/router.js** - Routes incoming requests:
+   - `/api/*` → backend/handlers/api-routes.js
    - Known page routes → Render using template system (views/layout.html + page fragments)
-   - Everything else → Serve static files from `public/` (CSS, JS, images)
-3. **server/handlers/** - API endpoint handlers (add new handlers as new files)
-4. **server/utils/template.js** - Simple template renderer (replaces {{PLACEHOLDERS}})
-5. **server/utils/pages.js** - Page configuration (routes → metadata)
+   - Everything else → Serve static files from `frontend/` (CSS, JS, images)
+3. **backend/handlers/** - API endpoint handlers (add new handlers as new files)
+4. **backend/utils/template.js** - Simple template renderer (replaces {{PLACEHOLDERS}})
+5. **backend/utils/pages.js** - Page configuration (routes → metadata)
 
 ### Frontend
 
-The frontend uses **component-based file organization** with **server-side template rendering**:
+The frontend uses **component-based file organization** with **backend-side template rendering**:
 
 - **views/layout.html** - Base HTML template (shared structure, no duplication)
 - **views/pages/** - Page-specific content fragments (no full HTML, just `<main>` content)
   - `home.html` - Home page content
   - `api-demo.html` - API demo content
   - `ui-library.html` - UI library content
-- **public/components/** - Reusable UI components (each in its own folder with HTML/CSS/JS)
+- **frontend/components/** - Reusable UI components (each in its own folder with HTML/CSS/JS)
   - `navbar/` - Navigation bar component with navbar.html, navbar.css, navbar.js
   - `footer/` - Footer component
-- **public/shared/** - Global utilities and styles
+- **frontend/shared/** - Global utilities and styles
   - `styles.css` - Global CSS (resets, typography, layout)
   - `api-client.js` - Fetch wrapper for `/api/*` endpoints
   - `error-display.js` - User-facing error display utility
-- **public/js/** - Page-specific JavaScript
+- **frontend/js/** - Page-specific JavaScript
   - `main.js` - Shared initialization (navbar/footer loading, error clearing)
   - `api-demo.js` - API demo page logic
   - `ui-library.js` - UI library page logic
-- **public/css/** - Page-specific stylesheets
+- **frontend/css/** - Page-specific stylesheets
   - `api-demo.css` - API demo styles
   - `ui-library.css` - UI library styles
 
@@ -62,26 +62,26 @@ The frontend uses **component-based file organization** with **server-side templ
 ### Running the App
 
 ```bash
-npm start  # Starts server on http://localhost:3000
+npm start  # Starts backend on http://localhost:3000
 ```
 
 ### Adding a New Page
 
 1. Create page content fragment in src/views/pages/ (e.g., `about.html`)
-2. Add route configuration in src/server/utils/pages.js
+2. Add route configuration in src/backend/utils/pages.js
 3. Specify page title, subtitle, content file, stylesheets, and scripts
-4. Create page-specific JS file in public/js/ if needed (e.g., `about.js`)
-5. Create page-specific CSS file in public/css/ if needed (e.g., `about.css`)
+4. Create page-specific JS file in frontend/js/ if needed (e.g., `about.js`)
+5. Create page-specific CSS file in frontend/css/ if needed (e.g., `about.css`)
 
 ### Adding a New API Endpoint
 
-1. Add handler in server/handlers/api-routes.js
-2. Call it from public/shared/api-client.js
-3. Trigger from page-specific JS (public/js/*.js) with DOM events
+1. Add handler in backend/handlers/api-routes.js
+2. Call it from frontend/shared/api-client.js
+3. Trigger from page-specific JS (frontend/js/\*.js) with DOM events
 
 ### Adding a New Component
 
-1. Create folder in public/components/ (e.g., `footer/`)
+1. Create folder in frontend/components/ (e.g., `footer/`)
 2. Add component files: `footer.html`, `footer.css`, `footer.js`
 3. Component JS should export a load function (e.g., `loadFooter()`)
 4. Import and call from main.js or page-specific JS files
@@ -90,11 +90,11 @@ npm start  # Starts server on http://localhost:3000
 ## Key Backend Patterns
 
 - **Explicit routing**: Check `req.method` and `req.url` directly (no middleware stack)
-- **Error handling**: Return 404 with `writeHead(404)` for missing resources; return 400 for bad input, 500 for server errors
+- **Error handling**: Return 404 with `writeHead(404)` for missing resources; return 400 for bad input, 500 for backend errors
 - **JSON responses**: Set `Content-Type: application/json` for API routes
 - **File serving**: Use `fs/promises` with `path.resolve()` for security
 - **API errors**: Respond with JSON error object: `{ error: "descriptive message" }`
-- **Logging**: Log server errors to console for debugging; do not expose stack traces to clients
+- **Logging**: Log backend errors to console for debugging; do not expose stack traces to clients
 
 ## Key Frontend Patterns
 
@@ -105,7 +105,7 @@ npm start  # Starts server on http://localhost:3000
 - **Event listeners**: `addEventListener()` on queried elements
 - **Async/await**: For fetch calls; keep handlers readable
 - **No templating**: Build HTML in the DOM, not in strings
-- **Form validation**: Validate required fields client-side before fetch; server-side validation is required too
+- **Form validation**: Validate required fields client-side before fetch; backend-side validation is required too
 - **Error display**: Catch fetch errors, display in DOM; use `console.error()` for debugging
 - **Loading states**: Disable buttons during fetch; optionally show loading message
 - **Component imports**: Use relative paths from page scripts (e.g., `../components/navbar/navbar.js`)
@@ -113,7 +113,7 @@ npm start  # Starts server on http://localhost:3000
   ```javascript
   try {
     const res = await fetch("/api/data");
-    if (!res.ok) throw new Error(`Server error: ${res.status}`);
+    if (!res.ok) throw new Error(`backend error: ${res.status}`);
     return await res.json();
   } catch (err) {
     console.error(err);

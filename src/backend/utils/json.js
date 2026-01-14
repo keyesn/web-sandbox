@@ -1,6 +1,6 @@
 /**
  * Send a JSON response with the specified status code
- * @param {http.ServerResponse} res - The response object
+ * @param {http.BackendResponse} res - The response object
  * @param {number} status - HTTP status code (e.g., 200, 404)
  * @param {object} body - Object to serialize as JSON
  */

@@ -8,7 +8,7 @@ The goal is to understand how the web works at a fundamental level before introd
 
 - Learn core web concepts:
   - HTTP
-  - Client/server communication
+  - Client/backend communication
   - DOM manipulation
   - ES modules
 - Avoid frameworks unless there is a clear reason to introduce them
@@ -39,12 +39,12 @@ The goal is to understand how the web works at a fundamental level before introd
 ```text
 web-sandbox/
 ├── src/
-│   ├── server/            # Node.js backend (no frameworks)
-│   │   ├── server.js      # HTTP server entry point
+│   ├── backend/            # Node.js backend (no frameworks)
+│   │   ├── backend.js      # HTTP backend entry point
 │   │   ├── router.js      # Request routing with template rendering
 │   │   ├── handlers/      # API route handlers
-│   │   └── utils/         # Server utilities (template renderer, page config)
-│   ├── views/             # Server-rendered templates
+│   │   └── utils/         # backend utilities (template renderer, page config)
+│   ├── views/             # backend-rendered templates
 │   │   ├── layout.html    # Base layout template (DRY)
 │   │   └── pages/         # Page-specific content fragments
 │   │       ├── home.html
@@ -54,7 +54,7 @@ web-sandbox/
 │   │           ├── buttons.html
 │   │           ├── forms.html
 │   │           └── cards.html
-│   └── public/            # Static front-end assets (CSS, JS, images)
+│   └── frontend/            # Static front-end assets (CSS, JS, images)
 │       ├── components/    # Reusable UI components (navbar, footer)
 │       ├── js/            # Page-specific JavaScript
 │       │   ├── main.js
@@ -77,7 +77,7 @@ web-sandbox/
 
 ## Running the App
 
-- Start the server
+- Start the backend
 
     ```bash
     npm install

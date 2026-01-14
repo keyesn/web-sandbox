@@ -3,7 +3,7 @@
 ## Current Structure After Refactoring
 
 ```text
-public/
+frontend/
 ├── shared/
 │   ├── styles.css           (Global/shared styles for all pages)
 │   ├── api-client.js
@@ -126,7 +126,7 @@ The `css/` folder and `shared/` folder serve different purposes:
 
 When creating a new page (e.g., `blog.html`):
 
-1. Create `blog.html` in `public/`
+1. Create `blog.html` in `frontend/`
 2. Create `js/blog.js` for page logic
 3. Create `css/blog.css` for page styles
 4. Link them all in HTML:

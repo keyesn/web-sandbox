@@ -2,10 +2,10 @@ import { readFile } from "fs/promises";
 import path from "path";
 import { CACHE_STRATEGY } from "./config.js";
 import { handleApi } from "./handlers/api-routes.js";
-import { renderTemplate } from "./utils/template.js";
 import { getPageConfig } from "./utils/pages.js";
+import { renderTemplate } from "./utils/template.js";
 
-const publicDir = path.resolve("src/public");
+const frontendDir = path.resolve("src/frontend");
 
 const mimeTypes = {
   ".html": "text/html; charset=utf-8",
@@ -30,7 +30,7 @@ function getCacheControl(ext) {
     if (ext === ".html" || ext === ".js" || ext === ".css") {
       return "no-store";
     }
-    return "public, max-age=300";
+    return "frontend, max-age=300";
   }
 
   // Production (CACHE_STRATEGY=prod): keep HTML revalidated, cache static assets briefly.
@@ -38,16 +38,16 @@ function getCacheControl(ext) {
     return "no-cache, must-revalidate";
   }
   if (ext === ".js" || ext === ".css") {
-    return "public, max-age=300";
+    return "frontend, max-age=300";
   }
 
-  return "public, max-age=300";
+  return "frontend, max-age=300";
 }
 
 /**
  * Main request router - directs API requests to handlers and serves static files
  * @param {http.IncomingMessage} req - The request object
- * @param {http.ServerResponse} res - The response object
+ * @param {http.BackendResponse} res - The response object
  */
 export async function router(req, res) {
   const { pathname } = new URL(req.url, "http://localhost");
@@ -84,10 +84,10 @@ export async function router(req, res) {
     const relativePath = pathname === "/" ? "index.html" : pathname.slice(1);
     const decodedPath = decodeURIComponent(relativePath);
     const normalized = path.normalize(decodedPath).replace(/^([.][.][/\\])+/, "");
-    let absolutePath = path.resolve(publicDir, normalized);
+    let absolutePath = path.resolve(frontendDir, normalized);
 
     // Security check: prevent directory traversal
-    if (!absolutePath.startsWith(publicDir)) {
+    if (!absolutePath.startsWith(frontendDir)) {
       res.writeHead(400, { "Content-Type": "text/plain" });
       res.end("Bad Request");
       return;
@@ -105,7 +105,7 @@ export async function router(req, res) {
         finalPath = absolutePath + ".html";
 
         // Security check after adding .html extension
-        if (!finalPath.startsWith(publicDir)) {
+        if (!finalPath.startsWith(frontendDir)) {
           res.writeHead(400, { "Content-Type": "text/plain" });
           res.end("Bad Request");
           return;

@@ -23,3 +23,7 @@ logs/*
 cert
 .history
 .env
+# Build artifacts
+src/frontend/css/bundle.css
+src/frontend/css/bundle.css.map
+dist/

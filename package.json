@@ -5,11 +5,15 @@
   "description": "A personal web development sandbox project.",
   "type": "module",
   "scripts": {
-    "start": "node src/server/server.js",
+    "build:css": "esbuild src/frontend/css/index.css --bundle --minify --sourcemap --outfile=src/frontend/css/bundle.css",
+    "build:css:watch": "esbuild src/frontend/css/index.css --bundle --minify --sourcemap --outfile=src/frontend/css/bundle.css --watch",
+    "start": "npm run build:css && node src/backend/backend.js",
+    "dev": "npm run build:css:watch & npm run start",
     "lint:css": "stylelint \"src/**/*.css\"",
     "lint:css:fix": "stylelint \"src/**/*.css\" --fix"
   },
   "devDependencies": {
+    "esbuild": "^0.27.2",
     "stylelint": "^16.26.1",
     "stylelint-config-recess-order": "^7.4.0",
     "stylelint-config-standard": "^39.0.1",

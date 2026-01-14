@@ -20,7 +20,7 @@ A comprehensive guide to naming folders and files in web projects - covering com
 2. **Be Descriptive**: Names should clearly indicate purpose
 3. **Be Concise**: Short but meaningful (avoid `verylongdescriptivefoldernamethatisTooMuch`)
 4. **Use ASCII**: Avoid special characters, spaces, accents (stick to `a-z`, `0-9`, `-`, `_`)
-5. **Lowercase Preferred**: Most web servers are case-sensitive on Linux/Unix
+5. **Lowercase Preferred**: Most web backends are case-sensitive on Linux/Unix
 
 ### Case Styles
 
@@ -63,7 +63,7 @@ assets/
 
 **Naming**:
 
-- `assets/` or `static/` or `public/` (framework-dependent)
+- `assets/` or `static/` or `frontend/` (framework-dependent)
 - Lowercase with hyphens: `hero-banner.jpg`, `user-avatar.png`
 - Organize by type: `images/`, `fonts/`, `videos/`
 
@@ -154,7 +154,7 @@ layouts/
 
 - `layouts/` (standard)
 - **Files**: PascalCase (`MainLayout.jsx`, `DashboardLayout.jsx`)
-- Describes purpose: `AuthLayout`, `AdminLayout`, `PublicLayout`
+- Describes purpose: `AuthLayout`, `AdminLayout`, `frontendLayout`
 
 **When to use**: Shared page structures, persistent navigation elements
 
@@ -499,14 +499,14 @@ database/
 
 ### Special Folders
 
-#### `public/` or `static/`
+#### `frontend/` or `static/`
 
-**Purpose**: Publicly accessible files served directly
+**Purpose**: frontendly accessible files served directly
 
 **Contains**:
 
 ```text
-public/
+frontend/
 ├── index.html
 ├── favicon.ico
 ├── robots.txt
@@ -515,7 +515,7 @@ public/
 
 **Naming**:
 
-- `public/` (Create React App, Next.js)
+- `frontend/` (Create React App, Next.js)
 - `static/` (Some frameworks)
 - Files served as-is from this folder
 
@@ -769,7 +769,7 @@ src/
 ### Node.js/Express
 
 ```text
-server/
+backend/
 ├── routes/            # kebab-case or camelCase
 │   └── userRoutes.js
 ├── controllers/       # camelCase + Controller suffix

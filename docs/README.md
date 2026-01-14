@@ -48,6 +48,12 @@ External resources, scratch notes, and miscellaneous documentation.
 
 ---
 
+## Temp
+
+Temporary notes and scratch files for in-progress ideas, implementation steps, etc.
+
+---
+
 ## Directory Structure
 
 ```text
@@ -56,7 +62,8 @@ docs/
 ├── architecture/                      # Design decisions
 ├── patterns/                          # Reusable patterns
 ├── guides/                            # Learning materials
-└── references/                        # External links and notes
+├── references/                        # External links and notes
+└── temp/                              # Temporary notes/scratches
 ```
 
 ---

@@ -7,7 +7,7 @@ Understanding how to organize CSS in web applications - from modular development
 **File Structure:**
 
 ```text
-public/css/
+frontend/css/
 ├── styles.css      # Global reset, layout, typography
 ├── navbar.css      # Navbar component styles
 └── [other].css     # Feature-specific styles
@@ -76,8 +76,8 @@ Large applications bundle CSS into a single file because:
 
 ```bash
 # Input: Multiple .css files
-public/css/styles.css
-public/css/navbar.css
+frontend/css/styles.css
+frontend/css/navbar.css
 
 # Build Tool Pipeline:
 1. Concatenate files
@@ -86,7 +86,7 @@ public/css/navbar.css
 4. Generate source maps (for debugging)
 
 # Output: Single optimized file
-public/css/bundle.min.css  (5KB instead of 12KB)
+frontend/css/bundle.min.css  (5KB instead of 12KB)
 ```
 
 ## When to Introduce Build Tools

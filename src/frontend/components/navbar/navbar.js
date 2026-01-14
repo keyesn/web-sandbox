@@ -35,7 +35,7 @@ export async function loadNavbar(containerSelector, state = {}) {
     const response = await fetch("/components/navbar/navbar.html");
 
     if (!response.ok) {
-      throw new Error(`Server returned ${response.status}`);
+      throw new Error(`Backend returned ${response.status}`);
     }
 
     const html = await response.text();

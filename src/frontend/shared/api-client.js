@@ -1,10 +1,10 @@
 /**
- * Fetch the server health status from the /api/health endpoint
- * @returns {Promise<object>} Server health response object
+ * Fetch the backend health status from the /api/health endpoint
+ * @returns {Promise<object>} Backend health response object
  */
 export async function getHealth() {
   const res = await fetch("/api/health");
-  if (!res.ok) throw new Error(`Server error: ${res.status}`);
+  if (!res.ok) throw new Error(`Backend error: ${res.status}`);
   return res.json();
 }
 
@@ -14,7 +14,7 @@ export async function getHealth() {
  */
 export async function getData() {
   const res = await fetch("/api/data");
-  if (!res.ok) throw new Error(`Server error: ${res.status}`);
+  if (!res.ok) throw new Error(`Backend error: ${res.status}`);
   return res.json();
 }
 
@@ -23,7 +23,7 @@ export async function getData() {
  *   - Parsing
  *   - Validation
  * @param {object} payload - Data to send in the POST request body
- * @returns {Promise<object>} Response object from the server
+ * @returns {Promise<object>} Response object from the backend
  */
 export async function postData(payload) {
   const res = await fetch("/api/data", {
@@ -33,6 +33,6 @@ export async function postData(payload) {
     },
     body: JSON.stringify(payload),
   });
-  if (!res.ok) throw new Error(`Server error: ${res.status}`);
+  if (!res.ok) throw new Error(`Backend error: ${res.status}`);
   return res.json();
 }

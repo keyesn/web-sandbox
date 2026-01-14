@@ -18,7 +18,7 @@ const routeHandlers = {
 /**
  * Route and handle API requests
  * @param {http.IncomingMessage} req - The request object
- * @param {http.ServerResponse} res - The response object
+ * @param {http.BackendResponse} res - The response object
  */
 export async function handleApi(req, res) {
   const { pathname } = new URL(req.url, "http://localhost");

@@ -13,7 +13,7 @@ export const pages = {
   },
   "/api-demo": {
     title: "API Demo",
-    subtitle: "Test the server health check endpoint:",
+    subtitle: "Test the backend health check endpoint:",
     contentFile: "src/views/pages/api-demo.html",
     stylesheets: '<link rel="stylesheet" href="/css/api-demo.css" />',
     scripts: '<script type="module" src="/js/api-demo.js"></script>',
@@ -22,7 +22,8 @@ export const pages = {
     title: "UI Library",
     subtitle: "A collection of reusable UI components for testing and reference",
     contentFile: "src/views/pages/ui-library.html",
-    stylesheets: '<link rel="stylesheet" href="/css/ui-library.css" /><link rel="stylesheet" href="/css/components/forms.css" /><link rel="stylesheet" href="/css/components/cards.css" />',
+    stylesheets:
+      '<link rel="stylesheet" href="/css/ui-library.css" /><link rel="stylesheet" href="/css/components/forms.css" /><link rel="stylesheet" href="/css/components/cards.css" />',
     scripts: '<script type="module" src="/js/ui-library.js"></script>',
   },
   "/ui-library/buttons": {
