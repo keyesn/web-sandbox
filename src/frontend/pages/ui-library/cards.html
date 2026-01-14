@@ -5,8 +5,6 @@
     <title>Cards | Web Sandbox</title>
     <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
     <link rel="stylesheet" href="/dist/bundle.css" />
-    <link rel="stylesheet" href="/css/ui-library.css" />
-    <link rel="stylesheet" href="/css/components/cards.css" />
   </head>
   <body>
     <div id="app-errors"></div>
@@ -23,9 +21,55 @@
           <a href="/ui-library">UI Library</a> / <span>Cards</span>
         </nav>
 
-        <div id="component-showcase">
-          <!-- Card components will be dynamically loaded here -->
-        </div>
+        <!-- Basic Card -->
+        <section class="component-section">
+          <h2>Basic Card</h2>
+          <p class="section-description">Simple container with title and body copy.</p>
+          <div class="component-showcase">
+            <div class="card basic-card">
+              <h3>Card Title</h3>
+              <p>This is a basic card component. Cards are useful for grouping related content.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Card with Actions -->
+        <section class="component-section">
+          <h2>Card with Actions</h2>
+          <p class="section-description">Interactive card that adds primary and secondary actions.</p>
+          <div class="component-showcase">
+            <div class="card action-card">
+              <h3>Action Card</h3>
+              <p>This card includes buttons for user interaction.</p>
+              <div class="card-actions">
+                <button class="btn btn-primary">Primary Action</button>
+                <button class="btn btn-secondary">Secondary</button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Card Grid -->
+        <section class="component-section">
+          <h2>Card Grid</h2>
+          <p class="section-description">Responsive set of cards displayed in a grid layout.</p>
+          <div class="component-showcase">
+            <div class="card-grid-demo">
+              <div class="card">
+                <h3>Card 1</h3>
+                <p>Content for card number 1. This demonstrates how cards look in a grid layout.</p>
+              </div>
+              <div class="card">
+                <h3>Card 2</h3>
+                <p>Content for card number 2. This demonstrates how cards look in a grid layout.</p>
+              </div>
+              <div class="card">
+                <h3>Card 3</h3>
+                <p>Content for card number 3. This demonstrates how cards look in a grid layout.</p>
+              </div>
+            </div>
+          </div>
+        </section>
       </div>
     </main>
 

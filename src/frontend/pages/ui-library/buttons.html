@@ -5,7 +5,6 @@
     <title>Buttons | Web Sandbox</title>
     <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
     <link rel="stylesheet" href="/dist/bundle.css" />
-    <link rel="stylesheet" href="/css/ui-library.css" />
   </head>
   <body>
     <div id="app-errors"></div>
@@ -22,9 +21,79 @@
           <a href="/ui-library">UI Library</a> / <span>Buttons</span>
         </nav>
 
-        <div id="component-showcase">
-          <!-- Button components will be dynamically loaded here -->
-        </div>
+        <!-- Basic Buttons Collection -->
+        <section class="component-section">
+          <h2>Basic Button Styles</h2>
+          <p class="section-description">Collection of primary button styles with different visual treatments.</p>
+          <div class="component-showcase">
+            <div class="buttons-basic-row">
+              <button class="btn btn-primary">Primary Button</button>
+              <button class="btn btn-secondary">Secondary Button</button>
+              <button class="btn btn-expand-one">Expand One Button</button>
+            </div>
+          </div>
+        </section>
+
+        <!-- Primary Button -->
+        <section class="component-section">
+          <h2>Primary Button</h2>
+          <p class="section-description">Base button style with primary color and hover effects.</p>
+          <div class="component-showcase">
+            <button class="btn btn-primary">Primary Button</button>
+          </div>
+        </section>
+
+        <!-- Secondary Button -->
+        <section class="component-section">
+          <h2>Secondary Button</h2>
+          <p class="section-description">Secondary button with neutral color scheme.</p>
+          <div class="component-showcase">
+            <button class="btn btn-secondary">Secondary Button</button>
+          </div>
+        </section>
+
+        <!-- Expand One Button -->
+        <section class="component-section">
+          <h2>Expand One Button</h2>
+          <p class="section-description">Playful button with expanding background animation on hover.</p>
+          <div class="component-showcase">
+            <button class="btn btn-expand-one">Expand One Button</button>
+          </div>
+        </section>
+
+        <!-- Disabled Button -->
+        <section class="component-section">
+          <h2>Disabled Button</h2>
+          <p class="section-description">Primary button in disabled state.</p>
+          <div class="component-showcase">
+            <button class="btn btn-primary" disabled>Disabled Button</button>
+          </div>
+        </section>
+
+        <!-- Stateful Buttons -->
+        <section class="component-section">
+          <h2>Stateful Buttons</h2>
+          <p class="section-description">Buttons demonstrating different interactive states.</p>
+          <div class="component-showcase">
+            <div class="buttons-state-row">
+              <button class="btn btn-primary" disabled>Disabled Button</button>
+              <button class="btn btn-primary" disabled>Loading...</button>
+            </div>
+          </div>
+        </section>
+
+        <!-- Interactive Click Counter -->
+        <section class="component-section">
+          <h2>Interactive Example</h2>
+          <p class="section-description">Click counter to illustrate behavior hooks.</p>
+          <div class="component-showcase">
+            <div class="button-interactive">
+              <p class="helper-text">Click to see button behavior.</p>
+              <button class="btn btn-primary" data-click-counter>Click Me!</button>
+              <p class="click-count" data-click-count>Clicked 0 times</p>
+            </div>
+          </div>
+        </section>
       </div>
     </main>
 
