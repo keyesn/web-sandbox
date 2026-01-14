@@ -1,0 +1,25 @@
+/**
+ * Disabled Button Styles
+ * ----------------------
+ * Styling for disabled button state
+ */
+
+.btn {
+  padding: 0.5rem 1.5rem;
+  font-family: inherit;
+  font-size: 1rem;
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.btn-primary {
+  color: white;
+  background-color: var(--primary-color, #007bff);
+}
+
+.btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}

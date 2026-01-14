@@ -1,0 +1,345 @@
+/* Style Showcase Page Styles */
+
+.style-showcase {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.showcase-section {
+  margin-bottom: var(--space-5);
+}
+
+.showcase-section h2 {
+  margin-bottom: var(--space-2);
+  font-size: 1.5rem;
+  color: var(--text-primary);
+}
+
+.showcase-section p {
+  margin-bottom: var(--space-3);
+  color: var(--text-secondary);
+}
+
+/* Color Grid */
+.color-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: var(--space-3);
+  margin-bottom: var(--space-5);
+}
+
+.color-block {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  align-items: center;
+}
+
+.color-swatch {
+  width: 100%;
+  height: 120px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 10%);
+}
+
+.color-label {
+  font-family: system-ui, sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  text-align: center;
+}
+
+/* Brightness Grid */
+.brightness-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: var(--space-3);
+  margin-bottom: var(--space-5);
+}
+
+.brightness-block {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  align-items: center;
+}
+
+.brightness-swatch {
+  width: 100%;
+  height: 100px;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+}
+
+.brightness-block span {
+  font-family: monospace;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  text-align: center;
+}
+
+/* Semantic Grid */
+.semantic-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: var(--space-3);
+  margin-bottom: var(--space-5);
+}
+
+.semantic-block {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  align-items: center;
+}
+
+.semantic-swatch {
+  width: 100%;
+  height: 100px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 10%);
+}
+
+.semantic-block span {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  text-align: center;
+}
+
+/* Theme Samples */
+.theme-samples {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--space-4);
+  margin-bottom: var(--space-5);
+}
+
+.theme-sample {
+  padding: var(--space-4);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+}
+
+.theme-sample h3 {
+  margin-bottom: var(--space-3);
+  font-size: 1.1rem;
+  color: var(--color-primary);
+}
+
+.theme-sample .bg-primary,
+.theme-sample .bg-secondary {
+  padding: var(--space-3);
+  margin-bottom: var(--space-2);
+  font-weight: 600;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+}
+
+.theme-sample .bg-primary {
+  color: var(--text-primary);
+  background-color: var(--bg-primary);
+}
+
+.theme-sample .bg-secondary {
+  color: var(--text-primary);
+  background-color: var(--bg-secondary);
+}
+
+.theme-sample .text-primary {
+  margin-bottom: var(--space-2);
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.theme-sample .text-secondary {
+  margin-bottom: 0;
+  color: var(--text-secondary);
+}
+
+/* Spacing Demo */
+.spacing-demo {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.spacing-item {
+  display: flex;
+  gap: var(--space-3);
+  align-items: center;
+}
+
+.spacing-box {
+  flex-shrink: 0;
+  width: auto;
+  background-color: var(--color-primary);
+  border-radius: 4px;
+}
+
+.spacing-item span {
+  width: auto;
+  min-width: 180px;
+  font-family: monospace;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+/* Responsive adjustments */
+@media (width <= 768px) {
+  .color-grid {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  }
+
+  .brightness-grid {
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+  }
+
+  .theme-samples {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Transparency Overlays */
+.transparency-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--space-4);
+  margin-bottom: var(--space-5);
+}
+
+.transparency-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.transparency-group h3 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.trans-row {
+  display: flex;
+  gap: var(--space-3);
+  align-items: center;
+}
+
+.trans-swatch {
+  flex-shrink: 0;
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 4px;
+}
+
+.trans-row span {
+  font-family: monospace;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+/* Accent Color Variants */
+.accent-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: var(--space-3);
+  margin-bottom: var(--space-5);
+}
+
+.accent-block {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  align-items: center;
+}
+
+.accent-swatch {
+  width: 100%;
+  height: 100px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 10%);
+}
+
+.accent-block span {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  text-align: center;
+}
+
+/* Shadow & Glassmorphism Demo */
+.shadow-demo {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: var(--space-4);
+  margin-bottom: var(--space-5);
+}
+
+.shadow-sample {
+  padding: var(--space-3);
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 8px;
+}
+
+.shadow-element,
+.glass-element {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 120px;
+  background-color: var(--color-base-30);
+  border-radius: 8px;
+}
+
+.glass-element {
+  background: linear-gradient(135deg, var(--color-base-20) 0%, var(--color-base-25) 100%);
+}
+
+.shadow-element span,
+.glass-element span {
+  font-family: monospace;
+  font-size: 0.8rem;
+  color: var(--text-primary);
+  text-align: center;
+}
+
+/* Interaction Modifiers */
+.modifier-demo {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--space-4);
+  margin-bottom: var(--space-5);
+}
+
+.modifier-item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  align-items: center;
+}
+
+.modifier-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 80px;
+  padding: var(--space-3);
+  font-weight: 600;
+  color: var(--text-primary);
+  text-align: center;
+  border-radius: 6px;
+}
+
+.modifier-item span {
+  font-family: monospace;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  text-align: center;
+}

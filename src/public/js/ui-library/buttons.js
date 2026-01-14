@@ -1,79 +1,36 @@
-/**
- * Buttons UI Library Page
- * ------------------------
- * Showcase various button styles and states
- */
+import { loadComponents } from "./component-loader.js";
 
 const showcase = document.querySelector("#component-showcase");
 
-/**
- * Create a component section
- */
-function createSection(title, description) {
-  const section = document.createElement("section");
-  section.className = "component-section";
+const components = [
+  {
+    title: "Primary Button",
+    description: "Base button style with primary color and hover effects.",
+    basePath: "/components/ui-library/buttons/primary-button",
+  },
+  {
+    title: "Secondary Button",
+    description: "Secondary button with neutral color scheme.",
+    basePath: "/components/ui-library/buttons/secondary-button",
+  },
+  {
+    title: "Expand One Button",
+    description: "Playful button with expanding background animation on hover.",
+    basePath: "/components/ui-library/buttons/expand-one-button",
+  },
+  {
+    title: "Disabled Button",
+    description: "Primary button in disabled state.",
+    basePath: "/components/ui-library/buttons/primary-button",
+    markupPath: "/components/ui-library/buttons/disabled-button/index.html",
+    stylePath: "/css/components/buttons-disabled.css",
+  },
+  {
+    title: "Interactive Example",
+    description: "Click counter to illustrate behavior hooks.",
+    basePath: "/components/ui-library/buttons/click-counter",
+    modulePath: "/components/ui-library/buttons/click-counter/script.js",
+  },
+];
 
-  const heading = document.createElement("h2");
-  heading.textContent = title;
-  section.appendChild(heading);
-
-  if (description) {
-    const desc = document.createElement("p");
-    desc.className = "section-description";
-    desc.textContent = description;
-    section.appendChild(desc);
-  }
-
-  const container = document.createElement("div");
-  container.className = "component-showcase";
-  section.appendChild(container);
-
-  showcase.appendChild(section);
-  return container;
-}
-
-// Primary and Secondary Buttons
-const basicButtons = createSection("Basic Buttons", "Primary and secondary button styles");
-
-const primaryBtn = document.createElement("button");
-primaryBtn.className = "btn btn-primary";
-primaryBtn.textContent = "Primary Button";
-basicButtons.appendChild(primaryBtn);
-
-const secondaryBtn = document.createElement("button");
-secondaryBtn.className = "btn btn-secondary";
-secondaryBtn.textContent = "Secondary Button";
-basicButtons.appendChild(secondaryBtn);
-
-const expandOneBtn = document.createElement("button");
-expandOneBtn.className = "btn btn-expand-one";
-expandOneBtn.textContent = "Expand One Button";
-basicButtons.appendChild(expandOneBtn);
-
-// Button States
-const stateButtons = createSection("Button States", "Disabled and active states");
-
-const disabledBtn = document.createElement("button");
-disabledBtn.className = "btn btn-primary";
-disabledBtn.textContent = "Disabled Button";
-disabledBtn.disabled = true;
-stateButtons.appendChild(disabledBtn);
-
-const loadingBtn = document.createElement("button");
-loadingBtn.className = "btn btn-primary";
-loadingBtn.textContent = "Loading...";
-loadingBtn.disabled = true;
-stateButtons.appendChild(loadingBtn);
-
-// Interactive Example
-const interactiveSection = createSection("Interactive Example", "Click to see button behavior");
-
-const clickableBtn = document.createElement("button");
-clickableBtn.className = "btn btn-primary";
-clickableBtn.textContent = "Click Me!";
-let clickCount = 0;
-clickableBtn.addEventListener("click", () => {
-  clickCount++;
-  clickableBtn.textContent = `Clicked ${clickCount} time${clickCount === 1 ? "" : "s"}`;
-});
-interactiveSection.appendChild(clickableBtn);
+loadComponents(showcase, components);
