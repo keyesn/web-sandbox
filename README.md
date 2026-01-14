@@ -40,7 +40,7 @@ The goal is to understand how the web works at a fundamental level before introd
 web-sandbox/
 ├── src/
 │   ├── backend/            # Node.js backend (no frameworks)
-│   │   ├── backend.js      # HTTP backend entry point
+│   │   ├── server.js       # HTTP server entry point
 │   │   ├── router.js      # Request routing with template rendering
 │   │   ├── handlers/      # API route handlers
 │   │   └── utils/         # backend utilities (template renderer, page config)

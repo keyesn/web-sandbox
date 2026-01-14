@@ -12,7 +12,7 @@ This is a **learning-first, framework-free web application** for understanding h
 
 ### Request Flow
 
-1. **backend/backend.js** - HTTP backend entry point (Node `http` module, port 3000)
+1. **backend/server.js** - HTTP server entry point (Node `http` module, port 3000)
 2. **backend/router.js** - Routes incoming requests:
    - `/api/*` → backend/handlers/api-routes.js
    - Known page routes → Render using template system (views/layout.html + page fragments)

@@ -7,7 +7,7 @@
   "scripts": {
     "build:css": "esbuild src/frontend/css/index.css --bundle --minify --sourcemap --outfile=src/frontend/css/bundle.css",
     "build:css:watch": "esbuild src/frontend/css/index.css --bundle --minify --sourcemap --outfile=src/frontend/css/bundle.css --watch",
-    "start": "npm run build:css && node src/backend/backend.js",
+    "start": "npm run build:css && node src/backend/server.js",
     "dev": "npm run build:css:watch & npm run start",
     "lint:css": "stylelint \"src/**/*.css\"",
     "lint:css:fix": "stylelint \"src/**/*.css\" --fix"
