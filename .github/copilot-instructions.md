@@ -162,3 +162,7 @@ When generating code:
 - Prefer small, incremental changes
 - Avoid “magic” abstractions
 - Comment code where intent is not obvious
+
+## Command Execution Environment
+
+- All shell commands must be written for **Windows PowerShell**
