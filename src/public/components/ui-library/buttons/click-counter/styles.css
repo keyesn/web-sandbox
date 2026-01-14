@@ -1,0 +1,17 @@
+.button-interactive {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  align-items: flex-start;
+}
+
+.button-interactive .helper-text {
+  margin: 0;
+  color: var(--text-secondary, #666);
+}
+
+.button-interactive .click-count {
+  margin: 0;
+  font-weight: 600;
+  color: var(--text-primary, #333);
+}

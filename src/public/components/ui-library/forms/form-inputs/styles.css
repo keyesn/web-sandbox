@@ -1,0 +1,9 @@
+.form-stack {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.form-stack .form-group {
+  min-width: 260px;
+}

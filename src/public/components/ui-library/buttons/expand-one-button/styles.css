@@ -1,0 +1,62 @@
+/**
+ * Expand One Button Component
+ * ---------------------------
+ * Playful button with expanding background animation on hover
+ */
+
+.btn {
+  padding: 0.5rem 1.5rem;
+  font-family: inherit;
+  font-size: 1rem;
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.btn-expand-one {
+  position: relative;
+  padding: 10px 24px;
+  overflow: hidden;
+  font-size: 18px;
+  font-weight: 600;
+  color: rgb(255 169 77);
+  cursor: pointer;
+  background-color: transparent;
+  border: 2px solid rgb(255 169 77);
+  border-radius: 34px;
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.btn-expand-one::before {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  width: 50px;
+  height: 50px;
+  margin: auto;
+  content: "";
+  background-color: rgb(255 169 77);
+  border-radius: inherit;
+  scale: 0;
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.btn-expand-one:hover::before {
+  scale: 5;
+}
+
+.btn-expand-one:hover {
+  color: #212121;
+  box-shadow: 0 0 20px rgb(255 169 77 / 40%);
+  scale: 1.1;
+}
+
+.btn-expand-one:active {
+  scale: 1;
+}
+
+.btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
