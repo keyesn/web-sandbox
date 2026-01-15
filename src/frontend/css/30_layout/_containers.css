@@ -1,0 +1,50 @@
+/**
+ * Layout Containers
+ * -----------------
+ * Page-level wrappers, section spacing, and structural blocks.
+ */
+
+/* General page containers */
+.style-showcase {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.showcase-section {
+  margin-bottom: var(--space-5);
+}
+
+.ui-library-home {
+  padding: 2rem 0;
+}
+
+.ui-library-page {
+  padding: 1rem 0;
+}
+
+.breadcrumb {
+  padding-bottom: 1rem;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid var(--border-color, #e0e0e0);
+}
+
+#component-showcase {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  padding: 1rem 0;
+}
+
+#design-components {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  padding: 2rem 0;
+}
+
+.component-section {
+  padding: 2rem;
+  background: var(--surface-color, #fff);
+  border: 1px solid var(--border-color, #e0e0e0);
+  border-radius: 8px;
+}

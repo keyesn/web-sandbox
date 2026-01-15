@@ -1,0 +1,126 @@
+/**
+ * Layout Grids & Flex
+ * -------------------
+ * Grid and flex layouts used across style showcase and UI library pages.
+ */
+
+/* Grids for color/semantic samples */
+.color-grid,
+.brightness-grid,
+.semantic-grid,
+.theme-samples,
+.transparency-grid,
+.accent-grid,
+.shadow-demo,
+.modifier-demo,
+.collection-grid {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.color-grid {
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  margin-bottom: var(--space-5);
+}
+
+.brightness-grid {
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  margin-bottom: var(--space-5);
+}
+
+.semantic-grid {
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  margin-bottom: var(--space-5);
+}
+
+.theme-samples {
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--space-4);
+  margin-bottom: var(--space-5);
+}
+
+.transparency-grid {
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--space-4);
+  margin-bottom: var(--space-5);
+}
+
+.accent-grid {
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  margin-bottom: var(--space-5);
+}
+
+.shadow-demo {
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: var(--space-4);
+  margin-bottom: var(--space-5);
+}
+
+.modifier-demo {
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--space-4);
+  margin-bottom: var(--space-5);
+}
+
+.collection-grid {
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+/* Flex helpers for showcase blocks */
+.color-block,
+.brightness-block,
+.semantic-block,
+.accent-block,
+.spacing-demo,
+.spacing-item,
+.transparency-group,
+.trans-row,
+.modifier-item,
+.component-showcase {
+  display: flex;
+}
+
+.color-block,
+.brightness-block,
+.semantic-block,
+.accent-block,
+.transparency-group,
+.modifier-item {
+  flex-direction: column;
+  gap: var(--space-2);
+  align-items: center;
+}
+
+.spacing-demo {
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.spacing-item,
+.trans-row,
+.component-showcase {
+  gap: var(--space-3);
+  align-items: center;
+}
+
+.component-showcase {
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+/* Responsive adjustments */
+@media (width <= 768px) {
+  .color-grid {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  }
+
+  .brightness-grid {
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+  }
+
+  .theme-samples {
+    grid-template-columns: 1fr;
+  }
+}

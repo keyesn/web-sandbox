@@ -1,0 +1,41 @@
+/**
+ * Typography Styles
+ *
+ * Font families, sizes, weights, and text-based styling.
+ */
+
+/* Body typography */
+body {
+  font-family: system-ui, sans-serif;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+}
+
+/* Headings and strong text */
+b,
+strong,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 900;
+}
+
+/* Title styling */
+.title {
+  color: var(--color-primary);
+}
+
+/* Page header typography */
+.page-header .title {
+  margin: 0 0 var(--space-2) 0;
+}
+
+.page-header .subtitle {
+  margin: 0;
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+}

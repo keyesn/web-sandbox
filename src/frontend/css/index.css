@@ -3,27 +3,27 @@
  * ===========================
  * This file serves as the main entry point for CSS bundling.
  * esbuild will process all @import statements and output a single bundle.css file.
- *
- * Import order matters:
- * 1. Global/Shared styles (reset, typography, layout)
- * 2. Component styles (navbar, footer, reusable UI components)
- * 3. Page-specific styles (api-demo, ui-library, etc.)
  */
 
-/* Global and shared styles */
-@import url("./global.css");
+/* ────────── Foundation Styles ────────── */
+@import url("./10_foundations/_reset.css");
+@import url("./10_foundations/_colors.css");
+@import url("./10_foundations/_spacing.css");
+@import url("./10_foundations/_typography.css");
 
-/* Component-specific styles */
-@import url("../components/navbar/navbar.css");
-@import url("../components/footer/footer.css");
+/* ────────── Component-specific styles ────────── */
+@import url("./20_components/_navbar.css");
+@import url("./20_components/_footer.css");
+@import url("./20_components/_buttons.css");
+@import url("./20_components/_buttons-disabled.css");
+@import url("./20_components/_cards.css");
+@import url("./20_components/_forms.css");
 
-/* UI library component styles */
-@import url("./components/buttons.css");
-@import url("./components/buttons-disabled.css");
-@import url("./components/cards.css");
-@import url("./components/forms.css");
+/* ────────── Layout Styles ────────── */
+@import url("./30_layout/_containers.css");
+@import url("./30_layout/_grids.css");
 
-/* Page-specific styles */
-@import url("./api-demo.css");
-@import url("./style-showcase.css");
-@import url("./ui-library.css");
+/* ────────── Page-specific styles ────────── */
+@import url("./40_pages/_api-demo.css");
+@import url("./40_pages/_style-showcase.css");
+@import url("./40_pages/_ui-library.css");

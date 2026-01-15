@@ -1,0 +1,163 @@
+/**
+ * Color Palette
+ *
+ * CSS custom properties for the entire color system, including semantic colors,
+ * theme-specific colors, and advanced color utilities (transparency, gradients).
+ */
+
+:root {
+  /* Base Colors - Semantic naming for clarity */
+  --color-primary: #4a9eff; /* Primary action color (blue) */
+  --color-accent: #ff6b6b; /* Accent/alerts (red) */
+  --color-success: #51cf66; /* Success state (green) */
+  --color-warning: #ffa94d; /* Warning state (orange) */
+  --color-neutral: #666; /* Neutral/secondary text */
+}
+
+.theme-dark {
+  /* ────────── Accent color (HSL components) ────────── */
+  --accent-h: 215;
+  --accent-s: 100%;
+  --accent-l: 53%;
+
+  /* ────────── Semantic Color Palette ────────── */
+  --color-red-rgb: 255, 76, 82;
+  --color-red: rgb(255 76 82);
+  --color-orange-rgb: 241, 144, 80;
+  --color-orange: rgb(241 144 80);
+  --color-yellow-rgb: 248, 201, 111;
+  --color-yellow: rgb(248 201 111);
+  --color-green-rgb: 24, 209, 125;
+  --color-green: rgb(24 209 125);
+  --color-cyan-rgb: 85, 211, 244;
+  --color-cyan: rgb(85 211 244);
+  --color-blue-rgb: 58, 135, 255;
+  --color-blue: rgb(58 135 255);
+  --color-purple-rgb: 168, 130, 255;
+  --color-purple: #a882ff;
+  --color-pink-rgb: 250, 153, 205;
+  --color-pink: #fa99cd;
+
+  /* ────────── Callout / Special Content ────────── */
+  --callout-quote-rgb: 150, 150, 150;
+  --callout-quote: rgb(150 150 160);
+
+  /* ────────── Base Color System Configuration (OKLCH Parameters) ────────── */
+  --bhue: 281;
+  --bsat-xtr: 0.0075;
+  --bsat-str: 0.0038;
+  --bsat-med: 0.0013;
+  --bsat-low: 0;
+  --bsat-modal: 0.0018;
+  --bsat-trans: 1;
+
+  /* ────────── Lightness Scale ────────── */
+  --bl-00: 23.5%;
+  --bl-05: 24%;
+  --bl-10: 26.25%;
+  --bl-20: 27.5%;
+  --bl-25: 31.25%;
+  --bl-30: 34.5%;
+  --bl-35: 36.25%;
+  --bl-40: 43.75%;
+  --bl-50: 52.5%;
+  --bl-55: 57.5%;
+  --bl-60: 63.75%;
+  --bl-70: 71.25%;
+  --bl-80: 77.5%;
+  --bl-90: 85%;
+  --bl-100: 93.25%;
+
+  /* ────────── Derived Base Colors ────────── */
+  --color-base-00: oklch(var(--bl-00) var(--bsat-med) var(--bhue));
+  --color-base-05: oklch(var(--bl-05) var(--bsat-low) var(--bhue));
+  --color-base-10: oklch(var(--bl-10) var(--bsat-str) var(--bhue));
+  --color-base-20: oklch(var(--bl-20) var(--bsat-str) var(--bhue));
+  --color-base-25: oklch(var(--bl-25) var(--bsat-str) var(--bhue));
+  --color-base-30: oklch(var(--bl-30) var(--bsat-str) var(--bhue));
+  --color-base-35: oklch(var(--bl-35) var(--bsat-str) var(--bhue));
+  --color-base-40: oklch(var(--bl-40) var(--bsat-xtr) var(--bhue));
+  --color-base-50: oklch(var(--bl-50) var(--bsat-xtr) var(--bhue));
+  --color-base-55: oklch(var(--bl-55) var(--bsat-xtr) var(--bhue));
+  --color-base-60: oklch(var(--bl-60) var(--bsat-xtr) var(--bhue));
+  --color-base-70: oklch(var(--bl-70) var(--bsat-str) var(--bhue));
+  --color-base-80: oklch(var(--bl-80) var(--bsat-str) var(--bhue));
+  --color-base-90: oklch(var(--bl-90) var(--bsat-str) var(--bhue));
+  --color-base-100: oklch(var(--bl-100) var(--bsat-low) var(--bhue));
+
+  /* ────────── Transparency & Overlay System ────────── */
+  --trans-strong-00: oklch(from var(--color-base-00) l var(--bsat-str) h / 75%);
+  --trans-strong-05: oklch(from var(--color-base-00) l var(--bsat-str) h / 62.5%);
+  --trans-strong-10: oklch(from var(--color-base-05) l var(--bsat-str) h / 37.5%);
+  --trans-strong-20: oklch(from var(--color-base-20) l var(--bsat-str) h / 50%);
+  --trans-strong-30: oklch(from var(--color-base-30) l var(--bsat-str) h / 50%);
+  --trans-strong-40: oklch(from var(--color-base-30) l var(--bsat-str) h / 50%);
+
+  --trans-faint-00: oklch(100% calc(var(--bsat-trans) * 0.075) var(--bhue) / 1.5%);
+  --trans-faint-05: oklch(100% calc(var(--bsat-trans) * 0.06) var(--bhue) / 2.5%);
+  --trans-faint-10: oklch(100% calc(var(--bsat-trans) * 0.05) var(--bhue) / 5%);
+  --trans-faint-20: oklch(100% calc(var(--bsat-trans) * 0.05) var(--bhue) / 6.25%);
+  --trans-faint-25: oklch(100% calc(var(--bsat-trans) * 0.05) var(--bhue) / 8.13%);
+  --trans-faint-30: oklch(100% calc(var(--bsat-trans) * 0.075) var(--bhue) / 10%);
+  --trans-faint-40: oklch(100% calc(var(--bsat-trans) * 0.04) var(--bhue) / 12.5%);
+  --trans-faint-50: oklch(100% calc(var(--bsat-trans) * 0.02) var(--bhue) / 20%);
+  --trans-faint-60: oklch(100% calc(var(--bsat-trans) * 0.02) var(--bhue) / 35%);
+
+  --trans-black-00: oklch(0% 0 0deg / 37.5%);
+  --trans-black-10: oklch(0% 0 0deg / 18.8%);
+  --trans-white-00: oklch(var(--bl-100) 0 0deg / 75%);
+  --trans-white-10: oklch(var(--bl-100) 0 0deg / 62.5%);
+
+  /* ────────── Text Colors ────────── */
+  --text-normal: var(--color-base-90);
+  --text-selection: oklab(from var(--color-accent) l a b / 25%);
+  --text-highlight-bg: oklch(from var(--color-highlight) 0.8deg calc(c * 1.375) h / 33%);
+  --text-highlight-bg-search: oklch(from var(--color-highlight) 0.875deg calc(c * 1.375) h / 62.5%);
+
+  /* ────────── Workspace & Background Gradients ────────── */
+  --bg-main-inner: oklch(27% var(--bsat-str) var(--bhue));
+  --bg-main-outer: oklch(26.25% var(--bsat-str) var(--bhue));
+  --bg-main-workspace: radial-gradient(at 50% 50%, var(--bg-main-inner) 0%, var(--bg-main-outer) 200%);
+
+  /* ────────── Borders, Hovers, and Interaction Modifiers ────────── */
+  --background-modifier-border: var(--trans-faint-20);
+  --background-modifier-border-focus: transparent;
+  --background-modifier-cover: oklch(10% 0 0deg / 50%);
+  --background-modifier-hover: var(--trans-faint-10);
+
+  --bg-checkbox-active: radial-gradient(#0000000f 52%, #ffffff20 64%);
+
+  /* ────────── Gradients for Interactive Elements ────────── */
+  --hotkey-gradient: linear-gradient(to top, var(--color-accent) -10%, var(--color-accent-4) 210%);
+  --toggle-gradient: linear-gradient(to bottom, var(--color-accent) -30%, var(--color-accent-4) 180%);
+  --warning-gradient: linear-gradient(to top, var(--color-red) -30%, var(--trans-strong-20) 180%);
+
+  /* ────────── Accent Color Variants ────────── */
+  --color-accent-1: color-mix(in oklab, var(--color-accent) 64%, #fff 36%);
+  --color-accent-2: color-mix(in oklab, var(--color-accent-1), transparent 8%);
+  --color-accent-3: color-mix(in oklab, var(--color-accent) 50%, transparent 75%);
+  --color-accent-4: color-mix(in oklab, var(--text-selection) 30%, transparent 70%);
+
+  /* ────────── Glassmorphism Layers ────────── */
+  --glass-base: inset 1.125px 1.75px 2px -1.25px rgb(255 255 255 / 25%), inset -1.125px -1.75px 2px -1.25px rgb(255 255 255 / 17.5%), inset 0 8px 16px rgb(255 255 255 / 2.5%);
+  --glass-base-m: inset 1.125px 1.75px 3px -1.25px rgb(255 255 255 / 12.5%), inset -1.125px -1.75px 3px -1.25px rgb(255 255 255 / 10%), inset 0 8px 16px rgb(255 255 255 / 1.5%);
+  --glass-base-l: inset 1.125px 1.75px 3px -1.25px rgb(255 255 255 / 15%), inset -1.125px -1.75px 3px -1.25px rgb(255 255 255 / 12.5%), inset 0 8px 16px rgb(255 255 255 / 1.5%);
+  --glass-button: inset 3.5px 3.5px 1.5px -1.25px oklab(from var(--interactive-accent) calc(l + 0.075) a b / 75%),
+    inset -3.5px -3.5px 1.5px -1.25px oklab(from var(--interactive-accent) calc(l + 0.075) a b / 56.3%);
+  --glass-button-l: inset 4.5px 4.5px 1.5px -1.5px oklab(from var(--interactive-accent) calc(l + 0.075) a b / 75%),
+    inset -4.5px -4.5px 1.5px -1.5px oklab(from var(--interactive-accent) calc(l + 0.075) a b / 56.3%);
+  --glass-button-error: inset 3.75px 3.75px 1.25px -1.25px oklab(from var(--text-error) calc(l + 0.075) a b / 75%),
+    inset -3.75px -3.75px 1.25px -1.25px oklab(from var(--text-error) calc(l + 0.075) a b / 56.3%);
+
+  /* ────────── Shadow System ────────── */
+  --input-shadow: none;
+  --input-shadow-hover: none;
+
+  --shadow-faint: 0px 3px 15px 0px var(--trans-strong-00);
+  --shadow-muted: 0px 3px 18px 0px var(--trans-black-10);
+  --shadow-normal: 0px 3px 18px 0px var(--trans-black-10);
+  --shadow-strong: 0px 0px 24px 0px var(--trans-black-00);
+
+  --shadow-s: var(--glass-base), var(--shadow-normal);
+  --shadow-l: var(--glass-base-l), var(--shadow-strong);
+}

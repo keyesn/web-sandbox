@@ -1,0 +1,33 @@
+/**
+ * Reset Styles
+ *
+ * Normalize browser defaults and establish baseline element behavior.
+ */
+
+/* Zero out default margin/padding on all elements */
+* {
+  padding: 0;
+  margin: 0;
+}
+
+/* Dark Mode Theme */
+[data-theme="dark"] {
+  color-scheme: dark;
+
+  --bg-primary: #0a0a0a;
+  --bg-secondary: #1a1a1a;
+  --text-primary: #e8e8e8;
+  --text-secondary: #b0b0b0;
+  --border-color: #333;
+}
+
+/* Light Mode Theme */
+[data-theme="light"] {
+  color-scheme: light;
+
+  --bg-primary: #fff;
+  --bg-secondary: #f5f5f5;
+  --text-primary: #1a1a1a;
+  --text-secondary: #666;
+  --border-color: #ddd;
+}

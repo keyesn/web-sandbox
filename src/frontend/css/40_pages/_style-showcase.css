@@ -1,0 +1,210 @@
+/**
+ * Page: Style Showcase
+ * --------------------
+ * Visual styling for style-showcase.html (grids, swatches, demos).
+ */
+
+.showcase-section h2 {
+  margin-bottom: var(--space-2);
+  font-size: 1.5rem;
+  color: var(--text-primary);
+}
+
+.showcase-section p {
+  margin-bottom: var(--space-3);
+  color: var(--text-secondary);
+}
+
+/* Color Grid visuals */
+.color-swatch {
+  width: 100%;
+  height: 120px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 10%);
+}
+
+.color-label {
+  font-family: system-ui, sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  text-align: center;
+}
+
+/* Brightness Grid visuals */
+.brightness-swatch {
+  width: 100%;
+  height: 100px;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+}
+
+.brightness-block span {
+  font-family: monospace;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  text-align: center;
+}
+
+/* Semantic Grid visuals */
+.semantic-swatch {
+  width: 100%;
+  height: 100px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 10%);
+}
+
+.semantic-block span {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  text-align: center;
+}
+
+/* Theme Samples visuals */
+.theme-sample {
+  padding: var(--space-4);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+}
+
+.theme-sample h3 {
+  margin-bottom: var(--space-3);
+  font-size: 1.1rem;
+  color: var(--color-primary);
+}
+
+.theme-sample .bg-primary,
+.theme-sample .bg-secondary {
+  padding: var(--space-3);
+  margin-bottom: var(--space-2);
+  font-weight: 600;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+}
+
+.theme-sample .bg-primary {
+  color: var(--text-primary);
+  background-color: var(--bg-primary);
+}
+
+.theme-sample .bg-secondary {
+  color: var(--text-primary);
+  background-color: var(--bg-secondary);
+}
+
+.theme-sample .text-primary {
+  margin-bottom: var(--space-2);
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.theme-sample .text-secondary {
+  margin-bottom: 0;
+  color: var(--text-secondary);
+}
+
+/* Spacing Demo visuals */
+.spacing-box {
+  flex-shrink: 0;
+  width: auto;
+  background-color: var(--color-primary);
+  border-radius: 4px;
+}
+
+.spacing-item span {
+  width: auto;
+  min-width: 180px;
+  font-family: monospace;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+/* Transparency visuals */
+.transparency-group h3 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.trans-swatch {
+  flex-shrink: 0;
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 4px;
+}
+
+.trans-row span {
+  font-family: monospace;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+/* Accent Color visuals */
+.accent-swatch {
+  width: 100%;
+  height: 100px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 10%);
+}
+
+.accent-block span {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  text-align: center;
+}
+
+/* Shadow & Glassmorphism visuals */
+.shadow-sample {
+  padding: var(--space-3);
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 8px;
+}
+
+.shadow-element,
+.glass-element {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 120px;
+  background-color: var(--color-base-30);
+  border-radius: 8px;
+}
+
+.glass-element {
+  background: linear-gradient(135deg, var(--color-base-20) 0%, var(--color-base-25) 100%);
+}
+
+.shadow-element span,
+.glass-element span {
+  font-family: monospace;
+  font-size: 0.8rem;
+  color: var(--text-primary);
+  text-align: center;
+}
+
+/* Interaction Modifiers visuals */
+.modifier-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 80px;
+  padding: var(--space-3);
+  font-weight: 600;
+  color: var(--text-primary);
+  text-align: center;
+  border-radius: 6px;
+}
+
+.modifier-item span {
+  font-family: monospace;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  text-align: center;
+}

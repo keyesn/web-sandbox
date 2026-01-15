@@ -1,0 +1,10 @@
+/**
+ * Buttons - Disabled State
+ * ------------------------
+ * Shared styling for disabled buttons across variants.
+ */
+
+.btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}

@@ -1,0 +1,94 @@
+/**
+ * Page: UI Library
+ * ----------------
+ * Page-specific visuals for UI library screens.
+ */
+
+/* Landing Page - Home */
+.ui-library-home .intro {
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--text-secondary, #666);
+}
+
+.collection-card {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  background: var(--surface-color, #fff);
+  border: 1px solid var(--border-color, #e0e0e0);
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgb(0 0 0 / 5%);
+  transition: all 0.3s ease;
+}
+
+.collection-card:hover {
+  box-shadow: 0 8px 16px rgb(0 0 0 / 10%);
+}
+
+.collection-card h2 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  color: var(--color-primary, #333);
+}
+
+.collection-card p {
+  flex-grow: 1;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+  color: var(--text-secondary, #666);
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+.collection-card .btn {
+  align-self: flex-start;
+}
+
+/* Breadcrumbs */
+.breadcrumb {
+  font-size: 0.9rem;
+  color: var(--text-secondary, #666);
+}
+
+.breadcrumb a {
+  color: var(--primary-color, #007bff);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.breadcrumb a:hover {
+  color: var(--primary-hover, #0056b3);
+  text-decoration: underline;
+}
+
+.breadcrumb span {
+  color: var(--text-primary, #333);
+}
+
+/* Component Section */
+.component-section {
+  background: var(--surface-color, #fff);
+}
+
+.component-section h2 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  font-size: 1.5rem;
+  color: var(--color-primary, #333);
+}
+
+.section-description {
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+  color: var(--text-secondary, #666);
+}
+
+.component-error {
+  padding: 1rem;
+  color: #721c24;
+  background: #f8d7da;
+  border: 1px solid #f5c6cb;
+  border-radius: 4px;
+}
